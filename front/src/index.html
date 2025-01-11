@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <script src="jquery-3.7.1.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
         <link
             rel="stylesheet"
@@ -46,35 +46,6 @@
                     </nav>
 
                     <div>
-                        <nav>
-                            <ul>
-                                <li>
-                                    <a>
-                                        <span class="material-symbols-outlined">
-                                            bookmark
-                                        </span>
-                                        Watchlist
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a>
-                                        <span class="material-symbols-outlined">
-                                            account_circle
-                                        </span>
-                                        User
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
-
-                        <div>
-                            <p>EN</p>
-                            <span class="material-symbols-outlined">
-                                arrow_drop_down
-                            </span>
-                        </div>
-
                         <span class="material-symbols-outlined">
                             light_mode
                         </span>
@@ -82,11 +53,24 @@
                 </div>
 
                 <span
-                    id="mobileMenu"
+                    id="menuSpan"
                     class="material-symbols-outlined self-center text-3xl"
                 >
                     menu
                 </span>
+
+                <div
+                    id="mobileMenu"
+                    class="bg-menu-mobile hidden absolute right-0 top-0 w-1/2 h-screen p-5"
+                >
+                    <span id="menuSpanClose" class="material-symbols-outlined text-3xl">
+                        close
+                    </span>
+
+                    <nav>
+                        <ul></ul>
+                    </nav>
+                </div>
             </header>
         </main>
 

@@ -562,36 +562,24 @@ video {
   position: relative;
 }
 
-.right-0 {
-  right: 0px;
-}
-
-.right-1\.5 {
-  right: 0.375rem;
-}
-
-.bottom-5 {
-  bottom: 1.25rem;
-}
-
-.top-5 {
-  top: 1.25rem;
-}
-
-.right-5 {
-  right: 1.25rem;
-}
-
 .bottom-1\.5 {
   bottom: 0.375rem;
 }
 
-.top-1\.5 {
-  top: 0.375rem;
+.right-0 {
+  right: 0px;
 }
 
 .right-3 {
   right: 0.75rem;
+}
+
+.top-0 {
+  top: 0px;
+}
+
+.top-1\.5 {
+  top: 0.375rem;
 }
 
 .flex {
@@ -602,14 +590,16 @@ video {
   display: none;
 }
 
-.justify-center {
-  justify-content: center;
+.h-screen {
+  height: 100vh;
 }
 
-.space-x-5 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-x-reverse: 0;
-  margin-right: calc(1.25rem * var(--tw-space-x-reverse));
-  margin-left: calc(1.25rem * calc(1 - var(--tw-space-x-reverse)));
+.w-1\/2 {
+  width: 50%;
+}
+
+.justify-center {
+  justify-content: center;
 }
 
 .space-x-7 > :not([hidden]) ~ :not([hidden]) {
@@ -624,6 +614,10 @@ video {
 
 .rounded-lg {
   border-radius: 0.5rem;
+}
+
+.p-5 {
+  padding: 1.25rem;
 }
 
 .px-5 {
@@ -641,30 +635,6 @@ video {
   padding-bottom: 1.25rem;
 }
 
-.align-middle {
-  vertical-align: middle;
-}
-
-.text-lg {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
-}
-
-.text-xl {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-}
-
-.text-2xl {
-  font-size: 1.5rem;
-  line-height: 2rem;
-}
-
-.text-5xl {
-  font-size: 3rem;
-  line-height: 1;
-}
-
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
@@ -676,6 +646,10 @@ video {
 
 .bg-secondary {
   background-color: #1a1a1a;
+}
+
+.bg-menu-mobile {
+  background-color: #1f1f1f;
 }
 
 .text-secondary {

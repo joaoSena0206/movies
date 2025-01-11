@@ -10,6 +10,10 @@
     background-color: #1a1a1a;
 }
 
+.bg-menu-mobile {
+    background-color: #1f1f1f;
+}
+
 .text-secondary {
     color: #797979;
 }
