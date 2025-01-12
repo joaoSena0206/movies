@@ -19,9 +19,9 @@
             <header class="flex bg-background-nav justify-center py-5 space-x-7 text-secondary">
                 <img src="imgs/logo.svg" alt="IMDB Logo" />
 
-                <div class="relative">
-                    <input class="rounded-lg px-5 py-1.5 bg-secondary" placeholder="Search IMDb" />
-                    <span class="material-symbols-outlined absolute right-3 top-1.5 bottom-1.5"> search </span>
+                <div class="relative self-center">
+                    <input class="rounded-lg px-5 py-1.5 bg-secondary text-white" placeholder="Search IMDb" />
+                    <span class="material-symbols-outlined absolute right-3 top-1.5 bottom-1.5 text-white"> search </span>
                 </div>
 
                 <div class="hidden">
@@ -41,10 +41,15 @@
                     </div>
                 </div>
 
-                <span id="menuSpan" class="material-symbols-outlined self-center text-[30px] cursor-pointer text-white"> menu </span>
+                <span id="menuSpan" class="material-symbols-outlined text-[30px] cursor-pointer text-white hover:bg-zinc-800 rounded-[20px] p-2 transition duration-200 ease-in-out"> menu </span>
 
                 <div id="mobileMenu" class="bg-menu-mobile hidden absolute right-0 top-0 w-1/2 h-screen p-5">
-                    <span id="menuSpanClose" class="material-symbols-outlined text-3xl mb-5 cursor-pointer text-white"> close </span>
+                    <span
+                        id="menuSpanClose"
+                        class="material-symbols-outlined text-[30px] cursor-pointer text-white rounded-[20px] p-2 hover:bg-zinc-700 transition duration-200 ease-in-out ml-[-8px] mb-5"
+                    >
+                        close
+                    </span>
 
                     <nav>
                         <ul class="flex flex-col space-y-5 text-nowrap">

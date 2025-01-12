@@ -30,6 +30,10 @@
     background-color: #1f1f1f;
 }
 
+.bg-pulse {
+    background-color: #252525;
+}
+
 .text-secondary {
     color: #797979;
 }
