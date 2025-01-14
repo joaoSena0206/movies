@@ -614,6 +614,10 @@ video {
   display: none;
 }
 
+.h-\[350px\] {
+  height: 350px;
+}
+
 .h-screen {
   height: 100vh;
 }
