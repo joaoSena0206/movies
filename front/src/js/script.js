@@ -2,6 +2,7 @@ $(function () {
     const menu = $("#mobileMenu");
     const searchBar = $("#searchBar");
     const bookmark = $(".bookmark");
+    const thumbFigure = $(".thumbFigure");
 
     // Adiciona animação ao menu quando clicar ou fechar
     $("#menuSpan").on("click", function () {
@@ -34,14 +35,34 @@ $(function () {
         this.getSVGDocument().children[0].children[0].setAttribute("fill", "#1A1A1A");
     });
 
+    // Adiciona efeito hover na thumb do carrosel
+    thumbFigure.on("mouseenter", function () {
+        const thumbImg = this.querySelector("img");
+        const playSpan = this.querySelector(".playSpan");
+
+        thumbImg.style.transition = "opacity 0.2s ease-in-out";
+        thumbImg.style.opacity = "90%";
+
+        playSpan.style.transition = "color 0.2s ease-in-out"
+        playSpan.style.color = "#F6C700";
+    });
+
+    thumbFigure.on("mouseleave", function () {
+        const thumbImg = this.querySelector("img");
+        const playSpan = this.querySelector(".playSpan");
+
+        thumbImg.style.opacity = "100%";
+        playSpan.style.color = "white";
+    });
+
     // Inicializa o Swiper
     const swiper = new Swiper(".swiper", {
         direction: "horizontal",
         loop: true,
         slidesPerView: 1,
-        autoplay: {
-            delay: 5000,
-            disableOnInteraction: false,
-        },
+        // autoplay: {
+        //     delay: 5000,
+        //     disableOnInteraction: false,
+        // },
     });
 });
