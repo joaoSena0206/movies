@@ -1,7 +1,7 @@
 $(function () {
     const menu = $("#mobileMenu");
     const searchBar = $("#searchBar");
-    const bookmark = $("#bookmark");
+    const bookmark = $(".bookmark");
 
     // Adiciona animação ao menu quando clicar ou fechar
     $("#menuSpan").on("click", function () {
@@ -32,5 +32,16 @@ $(function () {
 
     bookmark.on("mouseleave", function () {
         this.getSVGDocument().children[0].children[0].setAttribute("fill", "#1A1A1A");
+    });
+
+    // Inicializa o Swiper
+    const swiper = new Swiper(".swiper", {
+        direction: "horizontal",
+        loop: true,
+        slidesPerView: 1,
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+        },
     });
 });
