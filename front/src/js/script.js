@@ -71,9 +71,9 @@ $(function () {
         direction: "horizontal",
         loop: true,
         slidesPerView: 1,
-        // autoplay: {
-        //     delay: 5000,
-        //     disableOnInteraction: false,
-        // },
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+        }
     });
 });
