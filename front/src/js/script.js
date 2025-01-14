@@ -3,6 +3,7 @@ $(function () {
     const searchBar = $("#searchBar");
     const bookmark = $(".bookmark");
     const thumbFigure = $(".thumbFigure");
+    const banner = $(".banner");
 
     // Adiciona animação ao menu quando clicar ou fechar
     $("#menuSpan").on("click", function () {
@@ -43,7 +44,7 @@ $(function () {
         thumbImg.style.transition = "opacity 0.2s ease-in-out";
         thumbImg.style.opacity = "90%";
 
-        playSpan.style.transition = "color 0.2s ease-in-out"
+        playSpan.style.transition = "color 0.2s ease-in-out";
         playSpan.style.color = "#F6C700";
     });
 
@@ -53,6 +54,16 @@ $(function () {
 
         thumbImg.style.opacity = "100%";
         playSpan.style.color = "white";
+    });
+
+    // Adiciona efeito hover no banner do carrosel
+    banner.on("mouseenter", function () {
+        this.style.transition = "opacity 0.2s ease-in-out";
+        this.style.opacity = "90%";
+    });
+
+    banner.on("mouseleave", function () {
+        this.style.opacity = "100%";
     });
 
     // Inicializa o Swiper
