@@ -20,4 +20,17 @@ $(function () {
     searchBar.on("focus", function () {
         $("#searchIcon").fadeOut(350);
     });
+
+    // Adiciona efeito hover no ícone de bookmark
+    bookmark.on("mouseenter", function () {
+        const path = this.getSVGDocument().children[0].children[0];
+
+        path.style.transition = "fill 0.2s ease-in-out";
+        path.style.cursor = "pointer";
+        path.setAttribute("fill", "#434342");
+    });
+
+    bookmark.on("mouseleave", function () {
+        this.getSVGDocument().children[0].children[0].setAttribute("fill", "#1A1A1A");
+    });
 });
