@@ -37,3 +37,12 @@
 .text-secondary {
     color: #797979;
 }
+
+.bg-page {
+    background-color: #0e0e0e;
+}
+
+.bg-hero-info {
+    background: rgb(0, 0, 0);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 25%, rgba(0, 0, 0, 1) 100%);
+}

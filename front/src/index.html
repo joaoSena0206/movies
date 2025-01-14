@@ -5,7 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
@@ -14,87 +16,110 @@
 
         <title>IMDB</title>
     </head>
-    <body>
-        <main>
-            <header class="flex bg-background-nav justify-around space-x-1 py-5 text-secondary">
-                <a class="flex shrink-0 items-center cursor-pointer" href="index.html">
-                    <img src="imgs/logo.svg" alt="IMDB Logo" />
-                </a>
+    <body class="min-h-[100vh] flex flex-col">
+        <header class="flex bg-background-nav justify-around space-x-1 py-5 text-secondary">
+            <a class="flex shrink-0 items-center cursor-pointer" href="index.html">
+                <img src="imgs/icons/logo.svg" alt="IMDB Logo" />
+            </a>
 
-                <div class="relative self-center">
-                    <input class="rounded-lg px-5 py-1.5 bg-secondary text-white focus:outline-none" placeholder="Search IMDb" />
-                    <span class="material-symbols-outlined absolute right-3 top-1.5 bottom-1.5 text-white"> search </span>
+            <div class="relative self-center">
+                <input id="searchBar" class="rounded-lg px-5 py-1.5 bg-secondary text-white focus:outline-none" placeholder="Search IMDb" />
+                <span id="searchIcon" class="material-symbols-outlined absolute right-3 top-1.5 bottom-1.5 text-white"> search </span>
+            </div>
+
+            <div class="hidden">
+                <nav>
+                    <ul class="flex">
+                        <li><a>Movies</a></li>
+                        <li><a>TV Shows</a></li>
+                        <li><a>Celebs</a></li>
+                        <li><a>Watch</a></li>
+                        <li><a>Awards</a></li>
+                        <li><a>Community</a></li>
+                    </ul>
+                </nav>
+
+                <div>
+                    <span class="material-symbols-outlined"> light_mode </span>
                 </div>
+            </div>
 
-                <div class="hidden">
-                    <nav>
-                        <ul class="flex">
-                            <li><a>Movies</a></li>
-                            <li><a>TV Shows</a></li>
-                            <li><a>Celebs</a></li>
-                            <li><a>Watch</a></li>
-                            <li><a>Awards</a></li>
-                            <li><a>Community</a></li>
-                        </ul>
-                    </nav>
+            <span id="menuSpan" class="material-symbols-outlined text-[30px] cursor-pointer text-white hover:bg-zinc-800 rounded-[20px] p-2 transition duration-200 ease-in-out"> menu </span>
 
-                    <div>
-                        <span class="material-symbols-outlined"> light_mode </span>
+            <div id="mobileMenu" class="bg-menu-mobile hidden absolute right-0 top-0 w-1/2 h-screen p-5">
+                <span id="menuSpanClose" class="material-symbols-outlined text-[30px] cursor-pointer text-white rounded-[20px] p-2 hover:bg-zinc-700 transition duration-200 ease-in-out ml-[-8px] mb-5"> close </span>
+
+                <nav>
+                    <ul class="flex flex-col space-y-5 text-nowrap">
+                        <li>
+                            <a class="flex items-center space-x-3 cursor-pointer hover:text-white transition duration-200 ease-in-out">
+                                <span class="material-symbols-outlined material-symbols-filled text-[30px]"> theaters </span>
+                                <p class="text-white">Movies</p>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="flex items-center space-x-3 cursor-pointer hover:text-white transition duration-200 ease-in-out">
+                                <span class="material-symbols-outlined text-[30px]"> tv </span>
+                                <p class="text-white">TV Shows</p>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="flex items-center space-x-3 cursor-pointer hover:text-white transition duration-200 ease-in-out">
+                                <span class="material-symbols-outlined material-symbols-filled text-[30px]"> video_library </span>
+                                <p class="text-white">Watch</p>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="flex items-center space-x-3 cursor-pointer hover:text-white transition duration-200 ease-in-out">
+                                <span class="material-symbols-outlined material-symbols-filled text-[30px]"> stars </span>
+                                <p class="text-white">Awards</p>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="flex items-center space-x-3 cursor-pointer hover:text-white transition duration-200 ease-in-out">
+                                <span class="material-symbols-outlined material-symbols-filled text-[30px]"> group </span>
+                                <p class="text-white">Celebs</p>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="flex items-center space-x-3 cursor-pointer hover:text-white transition duration-200 ease-in-out">
+                                <span class="material-symbols-outlined material-symbols-filled text-[30px]"> globe </span>
+                                <p class="text-white">Community</p>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main class="bg-page flex-grow">
+            <section class="bg-black text-white p-3">
+                <figure class="relative">
+                    <img class="rounded-lg" src="imgs/thumb/inside out.png" alt="Inside Out - Thumb" srcset="" />
+
+                    <div class="flex bg-hero-info absolute bottom-[-80px] space-x-4 bg-test -ml-3 -mr-3 w-[100vw] px-3 pb-3">
+                        <figure class="relative">
+                            <img class="w-[100px]" src="imgs/banner/inside out .png" alt="Inside Out - Banner" srcset="" />
+                            <object id="bookmark" class="absolute top-0 left-0" data="imgs/icons/bookmark.svg" type=""></object>
+                        </figure>
+
+                        <div>
+                            <div class="flex items-center">
+                                <span class="material-symbols-outlined text-[80px] -ml-3" style="font-variation-settings: 'wght' 200"> play_circle </span>
+                                <p>1:54</p>
+                            </div>
+
+                            <h1 class="font-bold text-lg">Inside Out 2</h1>
+                            <h2 class="text-gray-300 text-sm font-bold">Watch the Trailer</h2>
+                        </div>
                     </div>
-                </div>
-
-                <span id="menuSpan" class="material-symbols-outlined text-[30px] cursor-pointer text-white hover:bg-zinc-800 rounded-[20px] p-2 transition duration-200 ease-in-out"> menu </span>
-
-                <div id="mobileMenu" class="bg-menu-mobile hidden absolute right-0 top-0 w-1/2 h-screen p-5">
-                    <span id="menuSpanClose" class="material-symbols-outlined text-[30px] cursor-pointer text-white rounded-[20px] p-2 hover:bg-zinc-700 transition duration-200 ease-in-out ml-[-8px] mb-5"> close </span>
-
-                    <nav>
-                        <ul class="flex flex-col space-y-5 text-nowrap">
-                            <li>
-                                <a class="flex items-center space-x-3 cursor-pointer hover:text-white transition duration-200 ease-in-out">
-                                    <span class="material-symbols-outlined material-symbols-filled text-[30px]"> theaters </span>
-                                    <p class="text-white">Movies</p>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a class="flex items-center space-x-3 cursor-pointer hover:text-white transition duration-200 ease-in-out">
-                                    <span class="material-symbols-outlined text-[30px]"> tv </span>
-                                    <p class="text-white">TV Shows</p>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a class="flex items-center space-x-3 cursor-pointer hover:text-white transition duration-200 ease-in-out">
-                                    <span class="material-symbols-outlined material-symbols-filled text-[30px]"> video_library </span>
-                                    <p class="text-white">Watch</p>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a class="flex items-center space-x-3 cursor-pointer hover:text-white transition duration-200 ease-in-out">
-                                    <span class="material-symbols-outlined material-symbols-filled text-[30px]"> stars </span>
-                                    <p class="text-white">Awards</p>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a class="flex items-center space-x-3 cursor-pointer hover:text-white transition duration-200 ease-in-out">
-                                    <span class="material-symbols-outlined material-symbols-filled text-[30px]"> group </span>
-                                    <p class="text-white">Celebs</p>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a class="flex items-center space-x-3 cursor-pointer hover:text-white transition duration-200 ease-in-out">
-                                    <span class="material-symbols-outlined material-symbols-filled text-[30px]"> globe </span>
-                                    <p class="text-white">Community</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            </header>
+                </figure>
+            </section>
         </main>
 
         <script src="js/script.js"></script>
