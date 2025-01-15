@@ -16,11 +16,11 @@ $(function () {
 
     // Esconde o ícone de pesquisa ao focar na barra de pesquisa
     searchBar.on("focus", function () {
-        $("#searchIcon").fadeOut(350);
+        $("#searchIcon").fadeOut(200);
     });
 
-    searchBar.on("focus", function () {
-        $("#searchIcon").fadeOut(350);
+    searchBar.on("focusout", function () {
+        $("#searchIcon").fadeIn(200);
     });
 
     // Adiciona efeito hover no ícone de bookmark
