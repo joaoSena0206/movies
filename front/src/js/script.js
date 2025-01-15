@@ -71,9 +71,10 @@ $(function () {
         direction: "horizontal",
         loop: true,
         slidesPerView: 1,
+        allowTouchMove: false,
         autoplay: {
             delay: 5000,
             disableOnInteraction: false,
-        }
+        },
     });
 });
