@@ -77,9 +77,9 @@ $(function () {
         loop: true,
         slidesPerView: 1,
         allowTouchMove: false,
-        // autoplay: {
-        //     delay: 5000,
-        //     disableOnInteraction: false,
-        // },
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+        },
     });
 });
