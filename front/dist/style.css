@@ -694,6 +694,10 @@ video {
   align-items: center;
 }
 
+.justify-center {
+  justify-content: center;
+}
+
 .justify-around {
   justify-content: space-around;
 }
@@ -994,4 +998,10 @@ video {
 .focus\:outline-none:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
+}
+
+@media (min-width: 640px) {
+  .sm\:max-w-\[640px\] {
+    max-width: 640px;
+  }
 }
