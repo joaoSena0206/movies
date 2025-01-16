@@ -19,83 +19,81 @@
     <body class="min-h-[100vh] flex flex-col">
         <div id="blackBg" class="bg-black opacity-[80%] w-screen h-screen fixed hidden z-[100]"></div>
 
-        <header class="flex bg-background-nav justify-around space-x-1 py-5 text-secondary">
-            <a class="flex shrink-0 items-center cursor-pointer" href="index.html">
-                <img draggable="false" src="imgs/icons/logo.svg" alt="IMDB Logo" />
-            </a>
+        <header class="bg-background-nav justify-center flex">
+            <div class="flex space-x-1 py-5 justify-between px-3 text-secondary w-full md:justify-between md:max-w-[820px]">
+                <a class="flex shrink-0 items-center cursor-pointer" href="index.html">
+                    <img draggable="false" src="imgs/icons/logo.svg" alt="IMDB Logo" />
+                </a>
 
-            <div class="relative self-center">
-                <input id="searchBar" class="rounded-lg px-5 py-1.5 bg-secondary text-white focus:outline-none" placeholder="Pesquisar no IMDb" />
-                <span id="searchIcon" class="material-symbols-outlined absolute right-3 top-1.5 bottom-1.5 text-white"> search </span>
-            </div>
-
-            <div class="hidden">
-                <nav>
-                    <ul class="flex">
-                        <li><a>Filmes</a></li>
-                        <li><a>Séries</a></li>
-                        <li><a>Celebridades</a></li>
-                        <li><a>Assistir</a></li>
-                        <li><a>Prêmios</a></li>
-                        <li><a>Comunidade</a></li>
-                    </ul>
-                </nav>
-
-                <div>
-                    <span class="material-symbols-outlined"> light_mode </span>
+                <div class="relative self-center">
+                    <input id="searchBar" class="rounded-lg px-5 py-1.5 bg-secondary text-white focus:outline-none sm:w-[300px] md:w-[450px] lg:w-[200px]" placeholder="Pesquisar no IMDb" />
+                    <span id="searchIcon" class="material-symbols-outlined absolute right-3 top-1.5 bottom-1.5 text-white"> search </span>
                 </div>
-            </div>
 
-            <span id="menuSpan" class="material-symbols-outlined text-[30px] cursor-pointer text-white hover:bg-zinc-800 rounded-[20px] p-2 transition duration-200 ease-in-out"> menu </span>
+                <div class="hidden lg:flex items-center text-white">
+                    <nav>
+                        <ul class="flex space-x-4">
+                            <li class="cursor-pointer"><a>Filmes</a></li>
+                            <li class="cursor-pointer"><a>Séries</a></li>
+                            <li class="cursor-pointer"><a>Celebridades</a></li>
+                            <li class="cursor-pointer"><a>Assistir</a></li>
+                            <li class="cursor-pointer"><a>Prêmios</a></li>
+                            <li class="cursor-pointer"><a>Comunidade</a></li>
+                        </ul>
+                    </nav>
+                </div>
 
-            <div id="mobileMenu" class="bg-menu-mobile hidden fixed right-0 top-0 w-[350px] h-screen p-5 z-[101] sm:w-[250px]">
-                <span id="menuSpanClose" class="material-symbols-outlined text-[30px] cursor-pointer text-white rounded-[20px] p-2 hover:bg-zinc-700 transition duration-200 ease-in-out ml-[-8px] mb-5"> close </span>
+                <span id="menuSpan" class="material-symbols-outlined text-[30px] cursor-pointer text-white hover:bg-zinc-800 rounded-[20px] p-2 transition duration-200 ease-in-out lg:hidden"> menu </span>
 
-                <nav>
-                    <ul class="flex flex-col space-y-5 text-nowrap">
-                        <li>
-                            <a class="flex items-center space-x-3 cursor-pointer hover:text-white transition duration-200 ease-in-out">
-                                <span class="material-symbols-outlined material-symbols-filled text-[30px]"> theaters </span>
-                                <p class="text-white">Filmes</p>
-                            </a>
-                        </li>
+                <div id="mobileMenu" class="bg-menu-mobile hidden fixed right-0 top-0 w-[350px] h-screen p-5 z-[101] sm:w-[250px]">
+                    <span id="menuSpanClose" class="material-symbols-outlined text-[30px] cursor-pointer text-white rounded-[20px] p-2 hover:bg-zinc-700 transition duration-200 ease-in-out ml-[-8px] mb-5"> close </span>
 
-                        <li>
-                            <a class="flex items-center space-x-3 cursor-pointer hover:text-white transition duration-200 ease-in-out">
-                                <span class="material-symbols-outlined text-[30px]"> tv </span>
-                                <p class="text-white">Séries</p>
-                            </a>
-                        </li>
+                    <nav>
+                        <ul class="flex flex-col space-y-5 text-nowrap">
+                            <li>
+                                <a class="flex items-center space-x-3 cursor-pointer hover:text-white transition duration-200 ease-in-out">
+                                    <span class="material-symbols-outlined material-symbols-filled text-[30px]"> theaters </span>
+                                    <p class="text-white">Filmes</p>
+                                </a>
+                            </li>
 
-                        <li>
-                            <a class="flex items-center space-x-3 cursor-pointer hover:text-white transition duration-200 ease-in-out">
-                                <span class="material-symbols-outlined material-symbols-filled text-[30px]"> video_library </span>
-                                <p class="text-white">Assistir</p>
-                            </a>
-                        </li>
+                            <li>
+                                <a class="flex items-center space-x-3 cursor-pointer hover:text-white transition duration-200 ease-in-out">
+                                    <span class="material-symbols-outlined text-[30px]"> tv </span>
+                                    <p class="text-white">Séries</p>
+                                </a>
+                            </li>
 
-                        <li>
-                            <a class="flex items-center space-x-3 cursor-pointer hover:text-white transition duration-200 ease-in-out">
-                                <span class="material-symbols-outlined material-symbols-filled text-[30px]"> stars </span>
-                                <p class="text-white">Prêmios</p>
-                            </a>
-                        </li>
+                            <li>
+                                <a class="flex items-center space-x-3 cursor-pointer hover:text-white transition duration-200 ease-in-out">
+                                    <span class="material-symbols-outlined material-symbols-filled text-[30px]"> video_library </span>
+                                    <p class="text-white">Assistir</p>
+                                </a>
+                            </li>
 
-                        <li>
-                            <a class="flex items-center space-x-3 cursor-pointer hover:text-white transition duration-200 ease-in-out">
-                                <span class="material-symbols-outlined material-symbols-filled text-[30px]"> group </span>
-                                <p class="text-white">Celebridades</p>
-                            </a>
-                        </li>
+                            <li>
+                                <a class="flex items-center space-x-3 cursor-pointer hover:text-white transition duration-200 ease-in-out">
+                                    <span class="material-symbols-outlined material-symbols-filled text-[30px]"> stars </span>
+                                    <p class="text-white">Prêmios</p>
+                                </a>
+                            </li>
 
-                        <li>
-                            <a class="flex items-center space-x-3 cursor-pointer hover:text-white transition duration-200 ease-in-out">
-                                <span class="material-symbols-outlined material-symbols-filled text-[30px]"> globe </span>
-                                <p class="text-white">Comunidade</p>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
+                            <li>
+                                <a class="flex items-center space-x-3 cursor-pointer hover:text-white transition duration-200 ease-in-out">
+                                    <span class="material-symbols-outlined material-symbols-filled text-[30px]"> group </span>
+                                    <p class="text-white">Celebridades</p>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="flex items-center space-x-3 cursor-pointer hover:text-white transition duration-200 ease-in-out">
+                                    <span class="material-symbols-outlined material-symbols-filled text-[30px]"> globe </span>
+                                    <p class="text-white">Comunidade</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
             </div>
         </header>
 
@@ -155,7 +153,7 @@
                 <div class="sm:max-w-[820px] p-3 w-screen">
                     <h1 class="text-[20px] mb-5 before:bg-[#f5c518] before:rounded-[4px] before:content-[''] before:h-[100%] before:w-[4px] before:absolute relative before:mr-5 before:left-0 pl-3 font-bold">Populares</h1>
 
-                    <div class="flex space-x-5 overflow-x-scroll pb-5 relative" style="scrollbar-width: none;">
+                    <div class="flex space-x-5 overflow-x-scroll pb-5 relative" style="scrollbar-width: none">
                         <div class="bg-[#1A1A1A] w-[150px] rounded-lg pb-5 flex-shrink-0 break-words !ml-0">
                             <figure class="relative mb-3">
                                 <img draggable="false" class="w-[150px] h-[218px]" src="imgs/banner/inside out .png" alt="Inside Out - Banner" srcset="" />
