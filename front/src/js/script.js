@@ -6,7 +6,7 @@ $(function () {
     const banner = $(".banner");
     const blackBg = $("#blackBg");
 
-    // Adiciona animação ao menu quando clicar ou fechar e o fundo preto
+    // Adiciona animação ao menu quando clicar ou fechar e mostra o fundo preto
     $("#menuSpan").on("click", function () {
         menu.animate({ width: "toggle" }, 250);
 
