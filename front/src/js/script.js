@@ -5,6 +5,22 @@ $(function () {
     const thumbFigure = $(".thumbFigure");
     const banner = $(".banner");
     const blackBg = $("#blackBg");
+    const swiper = new Swiper(".swiper-hero", {
+        direction: "horizontal",
+        loop: true,
+        slidesPerView: 1,
+        allowTouchMove: false,
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+        },
+    });
+    const swiperFilmes = new Swiper(".swiper-filmes", {
+        direction: "horizontal",
+        slidesPerView: 4,
+        allowTouchMove: true,
+        spaceBetween: 30
+    });
 
     // Adiciona animação ao menu quando clicar ou fechar e mostra o fundo preto
     $("#menuSpan").on("click", function () {
@@ -69,17 +85,5 @@ $(function () {
 
     banner.on("mouseleave", function () {
         this.style.opacity = "100%";
-    });
-
-    // Inicializa o Swiper
-    const swiper = new Swiper(".swiper", {
-        direction: "horizontal",
-        loop: true,
-        slidesPerView: 1,
-        allowTouchMove: false,
-        autoplay: {
-            delay: 5000,
-            disableOnInteraction: false,
-        },
     });
 });
