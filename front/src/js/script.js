@@ -4,14 +4,19 @@ $(function () {
     const bookmark = $(".bookmark");
     const thumbFigure = $(".thumbFigure");
     const banner = $(".banner");
+    const blackBg = $("#blackBg");
 
-    // Adiciona animação ao menu quando clicar ou fechar
+    // Adiciona animação ao menu quando clicar ou fechar e o fundo preto
     $("#menuSpan").on("click", function () {
         menu.animate({ width: "toggle" }, 250);
+
+        blackBg.show();
     });
 
     $("#menuSpanClose").on("click", function () {
         menu.animate({ width: "toggle" }, 250);
+
+        blackBg.hide();
     });
 
     // Esconde o ícone de pesquisa ao focar na barra de pesquisa
@@ -72,9 +77,9 @@ $(function () {
         loop: true,
         slidesPerView: 1,
         allowTouchMove: false,
-        autoplay: {
-            delay: 5000,
-            disableOnInteraction: false,
-        },
+        // autoplay: {
+        //     delay: 5000,
+        //     disableOnInteraction: false,
+        // },
     });
 });
