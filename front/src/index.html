@@ -17,6 +17,8 @@
         <title>IMDB</title>
     </head>
     <body class="min-h-[100vh] flex flex-col">
+        <div class="bg-black opacity-[80%] w-screen h-screen fixed hidden z-[100]"></div>
+
         <header class="flex bg-background-nav justify-around space-x-1 py-5 text-secondary">
             <a class="flex shrink-0 items-center cursor-pointer" href="index.html">
                 <img draggable="false" src="imgs/icons/logo.svg" alt="IMDB Logo" />
@@ -46,7 +48,7 @@
 
             <span id="menuSpan" class="material-symbols-outlined text-[30px] cursor-pointer text-white hover:bg-zinc-800 rounded-[20px] p-2 transition duration-200 ease-in-out"> menu </span>
 
-            <div id="mobileMenu" class="bg-menu-mobile hidden absolute right-0 top-0 w-1/2 h-screen p-5 z-10">
+            <div id="mobileMenu" class="bg-menu-mobile hidden fixed right-0 top-0 w-[350px] h-screen p-5 z-[101] sm:w-[250px]">
                 <span id="menuSpanClose" class="material-symbols-outlined text-[30px] cursor-pointer text-white rounded-[20px] p-2 hover:bg-zinc-700 transition duration-200 ease-in-out ml-[-8px] mb-5"> close </span>
 
                 <nav>
@@ -149,8 +151,8 @@
                 </div>
             </section>
 
-            <section class="text-white p-3 flex justify-center">
-                <div class="sm:max-w-[640px]">
+            <section class="text-white flex justify-center">
+                <div class="sm:max-w-[640px] p-3 w-screen">
                     <h1 class="text-[20px] mb-5 before:bg-[#f5c518] before:rounded-[4px] before:content-[''] before:h-[100%] before:w-[4px] before:absolute relative before:mr-5 before:left-0 pl-3 font-bold">Populares</h1>
 
                     <div class="flex space-x-5 overflow-x-scroll pb-5" style="scrollbar-width: none">
@@ -237,8 +239,8 @@
                 </div>
             </section>
 
-            <section class="text-white p-3 flex justify-center">
-                <div class="sm:max-w-[640px]">
+            <section class="text-white flex justify-center">
+                <div class="sm:max-w-[640px] w-screen p-3">
                     <h1 class="text-[20px] mb-5 before:bg-[#f5c518] before:rounded-[4px] before:content-[''] before:h-[100%] before:w-[4px] before:absolute relative before:mr-5 before:left-0 pl-3 font-bold">Recentes</h1>
 
                     <div class="flex space-x-5 overflow-x-scroll pb-5" style="scrollbar-width: none">
