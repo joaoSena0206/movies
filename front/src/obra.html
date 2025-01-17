@@ -109,8 +109,8 @@
             </div>
         </header>
 
-        <main class="bg-page flex-grow flex flex-col space-y-5">
-            <section class="bg-[#1F1F1F]">
+        <main class="bg-[#1F1F1F] flex-grow flex flex-col">
+            <section class="mb-5">
                 <div class="p-5">
                     <h1 class="text-white text-[25px]">Divertidamente 2</h1>
                     <h2 class="text-zinc-500 text-[15px]">Título Original: Inside Out 2</h2>
@@ -125,10 +125,60 @@
                     </div>
                 </div>
 
-                <video class="rounded-lg h-[300px] object-cover" src="trailers/Divertidamente 2.mp4" autoplay muted controls></video>
+                <video class="rounded-lg h-[300px] object-cover" src="trailers/Divertidamente 2.mp4" muted controls playsinline></video>
+            </section>
+
+            <section class="px-5">
+                <div class="flex space-x-5 mb-5">
+                    <figure class="relative">
+                        <img draggable="false" class="w-[100px] max-w-none sm:w-[150px] bg-black banner rounded-lg rounded-tl-none" src="imgs/banner/inside out .png" alt="Inside Out - Banner" srcset="" />
+                        <!-- <object class="absolute top-0 left-0 bookmark" data="imgs/icons/bookmark.svg" type=""></object> -->
+                    </figure>
+
+                    <div class="max-w-[270px] flex flex-col space-y-5">
+                        <div class="flex overflow-x-scroll text-zinc-100 text-[15px] space-x-3" style="scrollbar-width: none">
+                            <div><button class="border-zinc-400 border-solid border-[0.5px] rounded-3xl py-1 px-3">Animação</button></div>
+                            <div><button class="border-zinc-400 border-solid border-[0.5px] rounded-3xl py-1 px-3">Infantil</button></div>
+                            <div><button class="border-zinc-400 border-solid border-[0.5px] rounded-3xl py-1 px-3">Comédia</button></div>
+                            <div><button class="border-zinc-400 border-solid border-[0.5px] rounded-3xl py-1 px-3">Aventura</button></div>
+                            <div><button class="border-zinc-400 border-solid border-[0.5px] rounded-3xl py-1 px-3">Drama</button></div>
+                        </div>
+
+                        <div class="max-h-[90px] overflow-y-scroll">
+                            <p class="text-white text-[15px]">Com um salto temporal, Riley se encontra mais velha, passando pela tão temida adolescência. Junto com o amadurecimento, a sala de controle também está passando por uma adaptação para dar lugar a algo totalmente inesperado: novas emoções. As já conhecidas, Alegria, Raiva, Medo, Nojinho e Tristeza não têm certeza de como se sentir quando novos inquilinos chegam ao local.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex space-x-5">
+                    <div class="flex space-x-1">
+                        <span class="material-symbols-outlined material-symbols-filled text-[#f5c518]"> star </span>
+                        <div class="flex">
+                            <p class="text-white font-bold">8,0</p>
+                            <p class="text-zinc-500 text-[15px]">/10</p>
+                        </div>
+                    </div>
+
+                    <div class="flex space-x-1">
+                        <span class="material-symbols-outlined text-[#5799ef]"> star </span>
+                        <p class="text-[#5799ef] font-bold">Avaliar</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="p-5">
+                <hr class="border-zinc-400" />
+
+                <div class="py-3 flex space-x-3">
+                    <h2 class="text-white font-bold">Direção</h2>
+                    <h2 class="text-[#5799ef]">Cesar Menote</h2>
+                </div>
+
+                <hr class="border-zinc-400" />
             </section>
         </main>
 
         <script type="module" src="js/geral.js"></script>
+        <script type="module" src="js/obra.js"></script>
     </body>
 </html>
