@@ -1,10 +1,7 @@
 $(function () {
-    const menu = $("#mobileMenu");
-    const searchBar = $("#searchBar");
     const bookmark = $(".bookmark");
     const thumbFigure = $(".thumbFigure");
     const banner = $(".banner");
-    const blackBg = $("#blackBg");
     const swiper = new Swiper(".swiper-hero", {
         direction: "horizontal",
         loop: true,
@@ -20,28 +17,6 @@ $(function () {
         slidesPerView: 4,
         allowTouchMove: true,
         spaceBetween: 30
-    });
-
-    // Adiciona animação ao menu quando clicar ou fechar e mostra o fundo preto
-    $("#menuSpan").on("click", function () {
-        menu.animate({ width: "toggle" }, 250);
-
-        blackBg.show();
-    });
-
-    $("#menuSpanClose").on("click", function () {
-        menu.animate({ width: "toggle" }, 250);
-
-        blackBg.hide();
-    });
-
-    // Esconde o ícone de pesquisa ao focar na barra de pesquisa
-    searchBar.on("focus", function () {
-        $("#searchIcon").fadeOut(200);
-    });
-
-    searchBar.on("focusout", function () {
-        $("#searchIcon").fadeIn(200);
     });
 
     // Adiciona efeito hover no ícone de bookmark
