@@ -638,6 +638,18 @@ video {
   height: 100vh;
 }
 
+.h-40 {
+  height: 10rem;
+}
+
+.h-\[3\] {
+  height: 3;
+}
+
+.h-\[300px\] {
+  height: 300px;
+}
+
 .min-h-\[100vh\] {
   min-height: 100vh;
 }
@@ -654,8 +666,8 @@ video {
   width: 150px;
 }
 
-.w-\[350px\] {
-  width: 350px;
+.w-\[300px\] {
+  width: 300px;
 }
 
 .w-full {
@@ -664,10 +676,6 @@ video {
 
 .w-screen {
   width: 100vw;
-}
-
-.w-\[300px\] {
-  width: 300px;
 }
 
 .flex-shrink-0 {
@@ -684,6 +692,10 @@ video {
 
 .cursor-pointer {
   cursor: pointer;
+}
+
+.list-disc {
+  list-style-type: disc;
 }
 
 .flex-col {
@@ -732,6 +744,12 @@ video {
   margin-bottom: calc(1.25rem * var(--tw-space-y-reverse));
 }
 
+.space-x-6 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(1.5rem * var(--tw-space-x-reverse));
+  margin-left: calc(1.5rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
 .self-center {
   align-self: center;
 }
@@ -768,6 +786,16 @@ video {
 .bg-black {
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity, 1));
+}
+
+.bg-\[\#1F1F1F\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(31 31 31 / var(--tw-bg-opacity, 1));
+}
+
+.object-cover {
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .p-2 {
@@ -823,6 +851,10 @@ video {
   padding-left: 0.75rem;
 }
 
+.font-\[\] {
+  font-family: ;
+}
+
 .text-\[20px\] {
   font-size: 20px;
 }
@@ -849,8 +881,32 @@ video {
   line-height: 1.25rem;
 }
 
+.text-\[40px\] {
+  font-size: 40px;
+}
+
+.text-\[25px\] {
+  font-size: 25px;
+}
+
+.text-\[18px\] {
+  font-size: 18px;
+}
+
+.text-\[15px\] {
+  font-size: 15px;
+}
+
+.text-\[16px\] {
+  font-size: 16px;
+}
+
 .font-bold {
   font-weight: 700;
+}
+
+.font-\[18px\] {
+  font-weight: 18px;
 }
 
 .text-\[\#f5c518\] {
@@ -876,6 +932,11 @@ video {
 .text-zinc-300 {
   --tw-text-opacity: 1;
   color: rgb(212 212 216 / var(--tw-text-opacity, 1));
+}
+
+.text-zinc-500 {
+  --tw-text-opacity: 1;
+  color: rgb(113 113 122 / var(--tw-text-opacity, 1));
 }
 
 .opacity-\[80\%\] {
@@ -941,6 +1002,64 @@ video {
 .bg-hero-info {
   background: rgb(0, 0, 0);
   background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 25%, rgba(0, 0, 0, 1) 100%);
+}
+
+.marker\:self-center *::marker {
+  align-self: center;
+}
+
+.marker\:text-sm *::marker {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.marker\:text-\[1px\] *::marker {
+  font-size: 1px;
+}
+
+.marker\:text-\[5px\] *::marker {
+  font-size: 5px;
+}
+
+.marker\:text-\[20px\] *::marker {
+  font-size: 20px;
+}
+
+.marker\:text-\[15px\] *::marker {
+  font-size: 15px;
+}
+
+.marker\:text-\[10px\] *::marker {
+  font-size: 10px;
+}
+
+.marker\:self-center::marker {
+  align-self: center;
+}
+
+.marker\:text-sm::marker {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.marker\:text-\[1px\]::marker {
+  font-size: 1px;
+}
+
+.marker\:text-\[5px\]::marker {
+  font-size: 5px;
+}
+
+.marker\:text-\[20px\]::marker {
+  font-size: 20px;
+}
+
+.marker\:text-\[15px\]::marker {
+  font-size: 15px;
+}
+
+.marker\:text-\[10px\]::marker {
+  font-size: 10px;
 }
 
 .before\:absolute::before {
