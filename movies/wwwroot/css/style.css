@@ -644,6 +644,15 @@ video {
 .self-center {
   align-self: center;
 }
+.overflow-x-auto {
+  overflow-x: auto;
+}
+.overflow-y-auto {
+  overflow-y: auto;
+}
+.overflow-x-hidden {
+  overflow-x: hidden;
+}
 .overflow-x-scroll {
   overflow-x: scroll;
 }
@@ -828,6 +837,25 @@ video {
     font-style: normal;
     font-variation-settings: "wdth" 100;
 }
+
+body {
+    -webkit-user-select: none;
+       -moz-user-select: none;
+            user-select: none; /* Impede a seleção de texto no corpo */
+}
+
+h1, h2, h3, p, span, a, img {
+    -webkit-user-select: none;
+       -moz-user-select: none;
+            user-select: none; /* Impede a seleção de texto nesses elementos */
+}
+
+button, input, textarea {
+    -webkit-user-select: auto;
+       -moz-user-select: auto;
+            user-select: auto; /* Permite seleção em elementos interativos */
+}
+
 
 .material-symbols-outlined {
     font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
