@@ -11,7 +11,7 @@ namespace movies.Data
             this._connectionString = connectionString;
         }
 
-        public void ExecutarComando(string comando, List<SqlParameter> parametros)
+        public void ExecutarComando(string comando, List<SqlParameter>? parametros)
         {
             using (SqlConnection connection = new SqlConnection(this._connectionString))
             {
@@ -28,7 +28,7 @@ namespace movies.Data
             }
         }
 
-        public SqlDataReader ExecutarConsulta(string comando, List<SqlParameter> parametros)
+        public SqlDataReader ExecutarConsulta(string comando, List<SqlParameter>? parametros)
         {
             using (SqlConnection connection = new SqlConnection(this._connectionString))
             {
