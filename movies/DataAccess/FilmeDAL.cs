@@ -39,4 +39,34 @@ public class FilmeDAL
             return filmes;
         }
     }
+     
+    public List<Filme> ObterRecentes()
+    {
+        string comando = @"
+        SELECT TOP(5)
+	        cd_filme AS Codigo,
+	        qt_duracao_filme AS Duracao,
+	        qt_avaliacao_filme AS Avaliacao,
+	        nm_filme AS Nome
+        FROM filme
+        ORDER BY cd_filme DESC";
+
+        using (SqlDataReader reader = _banco.ExecutarConsulta(comando))
+        {
+            List<Filme> filmes = new List<Filme>();
+
+            while (reader.Read())
+            {
+                Filme filme = new Filme();
+                filme.Codigo = reader.GetInt32(0);
+                filme.Duracao = reader.GetTimeSpan(1);
+                filme.Avaliacao = reader.GetDecimal(2);
+                filme.Nome = reader.GetString(3);
+
+                filmes.Add(filme);
+            }
+
+            return filmes;
+        }
+    }
 }
