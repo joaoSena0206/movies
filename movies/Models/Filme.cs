@@ -5,9 +5,6 @@ namespace movies.Models
     public class Filme
     {
         [Required]
-        public int Codigo { get; set; }
-
-        [Required]
         public string? Nome { get; set; }
 
         [Required]
@@ -22,6 +19,7 @@ namespace movies.Models
         [Required]
         public Diretor? Diretor { get; set; }
 
+        public int Codigo { get; set; }
         public int AnoLancamento { get; set; }
         public TimeSpan Duracao { get; set; }
         public decimal Avaliacao { get; set; }
