@@ -1,13 +1,20 @@
-﻿namespace movies.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
+
+namespace movies.Models
 {
     public class Diretor
     {
+        [Key]
         public int Codigo { get; set; }
-        public string? Nome { get; set; }
+
+        [Required]
+        [StringLength(255)]
+        public string Nome { get; set; }
 
         public Diretor()
         {
-
+            this.Nome = string.Empty;
         }
     }
 }
