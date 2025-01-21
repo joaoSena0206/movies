@@ -36,7 +36,6 @@ public class FilmeDAL
                 filmes.Add(filme);
             }
 
-
             return filmes;
         }
     }
