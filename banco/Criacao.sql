@@ -14,7 +14,7 @@ CREATE TABLE filme (
 	nm_filme NVARCHAR(255) NOT NULL,
 	nm_original_filme NVARCHAR(255) NOT NULL,
 	dt_ano_lancamento INT,
-	cd_faixa_etaria INT NOT NULL,
+	nm_faixa_etaria NVARCHAR(255) NOT NULL,
 	qt_duracao_filme TIME,
 	qt_avaliacao_filme DECIMAL(3,1),
 	ds_sinopse_filme TEXT NOT NULL,
@@ -25,7 +25,7 @@ CREATE TABLE filme (
 
 CREATE TABLE genero (
 	cd_genero INT PRIMARY KEY IDENTITY(1, 1),
-	nm_genero NVARCHAR(255) NOT NULL
+	nm_genero NVARCHAR(50) NOT NULL
 );
 
 CREATE TABLE filme_genero (
@@ -55,7 +55,7 @@ INSERT INTO genero (nm_genero) VALUES
 ('Fantasia');
 
 
-INSERT INTO filme (nm_filme, nm_original_filme, dt_ano_lancamento, cd_faixa_etaria, qt_duracao_filme, qt_avaliacao_filme, ds_sinopse_filme, cd_diretor) VALUES
+INSERT INTO filme (nm_filme, nm_original_filme, dt_ano_lancamento, nm_faixa_etaria, qt_duracao_filme, qt_avaliacao_filme, ds_sinopse_filme, cd_diretor) VALUES
 ('Inception', 'Inception', 2010, 14, '02:28:00', 8.8, 'Um filme sobre sonhos e espionagem no subconsciente.', 1),
 ('Pulp Fiction', 'Pulp Fiction', 1994, 18, '02:34:00', 8.9, 'Histórias interligadas de crime e redenção em Los Angeles.', 2),
 ('Jurassic Park', 'Jurassic Park', 1993, 12, '02:07:00', 8.1, 'Dinossauros trazidos de volta à vida causam caos em um parque temático.', 3),
