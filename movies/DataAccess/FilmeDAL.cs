@@ -10,16 +10,16 @@ public class FilmeDAL
         _banco = banco;
     }
 
-    public List<Filme> ObterTodos()
+    public List<Filme> ObterPopulares()
     {
-        string comando = @"
-        SELECT 
-	        cd_filme,
-	        qt_duracao_filme,
-	        qt_avaliacao_filme,
-	        nm_filme
-        FROM filme;
-        ";
+        string comando = $@"
+        SELECT
+	        cd_filme AS Codigo,
+	        qt_duracao_filme AS Duracao,
+	        qt_avaliacao_filme AS Avaliacao,
+	        nm_filme AS Nome
+        FROM filme
+        ORDER BY qt_avaliacao_filme DESC";
 
         using (SqlDataReader reader = _banco.ExecutarConsulta(comando))
         {
