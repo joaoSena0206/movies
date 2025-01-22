@@ -18,7 +18,7 @@ public class FilmeDAL
         {
             case "populares":
                 comando = @"
-                SELECT
+                SELECT TOP(5)
 	                cd_filme AS Codigo,
 	                qt_duracao_filme AS Duracao,
 	                qt_avaliacao_filme AS Avaliacao,
