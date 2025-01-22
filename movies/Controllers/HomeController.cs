@@ -17,19 +17,22 @@ namespace movies.Controllers
 
         public IActionResult Index()
         {
+            HomeViewModel homeViewModel = new HomeViewModel();
+
             try
             {
-                HomeViewModel homeViewModel = new HomeViewModel();
                 homeViewModel.FilmesPopulares = _filmeDAL.ObterFilmes("populares");
                 homeViewModel.FilmesRecentes = _filmeDAL.ObterFilmes("recentes");
                 homeViewModel.FilmesAleatorios = _filmeDAL.ObterFilmes("aleatorios");
-
-                return View(homeViewModel);
             }
-            catch
+            catch (Exception ex)
             {
-                return View("Erro ao carregar os filmes!");
+                homeViewModel.MensagemErro = "Erro ao carregar os filmes!";
+
+                throw new Exception(ex.Message);
             }
+
+            return View(homeViewModel);
         }
 
         public IActionResult Privacy()

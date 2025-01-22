@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
+using System.Data;
 
 namespace movies.Data
 {
@@ -30,19 +31,17 @@ namespace movies.Data
 
         public SqlDataReader ExecutarConsulta(string comando, List<SqlParameter>? parametros = null)
         {
-            using (SqlConnection connection = new SqlConnection(this._connectionString))
+            SqlConnection connection = new SqlConnection(_connectionString);
+            connection.Open();
+
+            SqlCommand command = new SqlCommand(comando, connection);
+
+            if (parametros != null)
             {
-                connection.Open();
-
-                SqlCommand command = new SqlCommand(comando, connection);
-
-                if (parametros != null)
-                {
-                    command.Parameters.AddRange(parametros.ToArray());
-                }
-
-                return command.ExecuteReader();
+                command.Parameters.AddRange(parametros.ToArray());
             }
+
+            return command.ExecuteReader(CommandBehavior.CloseConnection);
         }
     }
 }
