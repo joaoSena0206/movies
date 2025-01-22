@@ -10,46 +10,56 @@ public class FilmeDAL
         _banco = banco;
     }
 
-    public List<Filme> ObterPopulares()
+    public List<Filme> ObterFilmes(string tipoFiltro)
     {
-        string comando = $@"
-        SELECT
-	        cd_filme AS Codigo,
-	        qt_duracao_filme AS Duracao,
-	        qt_avaliacao_filme AS Avaliacao,
-	        nm_filme AS Nome
-        FROM filme
-        ORDER BY qt_avaliacao_filme DESC";
+        string comando = "";
 
-        using (SqlDataReader reader = _banco.ExecutarConsulta(comando))
+        switch (tipoFiltro.ToLower())
         {
-            List<Filme> filmes = new List<Filme>();
+            case "populares":
+                comando = @"
+                SELECT
+	                cd_filme AS Codigo,
+	                qt_duracao_filme AS Duracao,
+	                qt_avaliacao_filme AS Avaliacao,
+	                nm_filme AS Nome
+                FROM filme
+                ORDER BY qt_avaliacao_filme DESC";
+                break;
 
-            while (reader.Read())
-            {
-                Filme filme = new Filme();
-                filme.Codigo = reader.GetInt32(0);
-                filme.Duracao = reader.GetTimeSpan(1);
-                filme.Avaliacao = reader.GetDecimal(2);
-                filme.Nome = reader.GetString(3);
+            case "recentes":
+                comando = @"
+                SELECT TOP(5)
+	                cd_filme AS Codigo,
+	                qt_duracao_filme AS Duracao,
+	                qt_avaliacao_filme AS Avaliacao,
+	                nm_filme AS Nome
+                FROM filme
+                ORDER BY cd_filme DESC";
+                break;
 
-                filmes.Add(filme);
-            }
+            case "aleatorios":
+                comando = @"
+                SELECT TOP(5)
+	                cd_filme AS Codigo,
+	                qt_duracao_filme AS Duracao,
+	                qt_avaliacao_filme AS Avaliacao,
+	                nm_filme AS Nome
+                FROM filme
+                ORDER BY NEWID() DESC";
+                break;
 
-            return filmes;
+            default:
+                comando = @"
+                SELECT TOP(5)
+	                cd_filme AS Codigo,
+	                qt_duracao_filme AS Duracao,
+	                qt_avaliacao_filme AS Avaliacao,
+	                nm_filme AS Nome
+                FROM filme
+                ORDER BY NEWID() DESC";
+                break;
         }
-    }
-     
-    public List<Filme> ObterRecentes()
-    {
-        string comando = @"
-        SELECT TOP(5)
-	        cd_filme AS Codigo,
-	        qt_duracao_filme AS Duracao,
-	        qt_avaliacao_filme AS Avaliacao,
-	        nm_filme AS Nome
-        FROM filme
-        ORDER BY cd_filme DESC";
 
         using (SqlDataReader reader = _banco.ExecutarConsulta(comando))
         {
