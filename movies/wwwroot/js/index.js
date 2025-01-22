@@ -18,6 +18,7 @@ $(function () {
         allowTouchMove: true,
         spaceBetween: 30
     });
+    const imgThumb = $(".imgThumb");
 
     // Adiciona efeito hover no ícone de bookmark
     bookmark.on("mouseenter", function () {
@@ -61,4 +62,21 @@ $(function () {
     banner.on("mouseleave", function () {
         this.style.opacity = "100%";
     });
+     
+    // Pega a maior altura das imgs da thumb para que sejam iguais
+    let largestHeight = 0;
+
+    imgThumb.each((i, img) => {
+        if (img.offsetHeight > largestHeight) {
+            largestHeight = img.offsetHeight;
+        }
+    });
+
+    imgThumb.each((i, img) => {
+        if (img.offsetHeight != largestHeight) {
+            img.style.height = largestHeight + "px";
+        }
+    });
+
+    console.log(largestHeight);
 });
