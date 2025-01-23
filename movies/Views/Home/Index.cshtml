@@ -13,7 +13,7 @@
                     @foreach (Filme filme in Model.FilmesAleatorios!)
                     {
                         <div class="swiper-slide bg-black text-white p-3">
-                            <a href="obra">
+                            <a href="obra/@filme.Codigo">
                                 <figure class="relative cursor-pointer thumbFigure ">
                                     <img draggable="false" ondragstart="return false;" class="rounded-lg bg-black w-full h-[300px] sm:h-[400px] md:h-[600px] object-cover imgThumb" src="imgs/thumb/@(filme.Codigo).jpg" alt="@filme.Nome - Thumb" srcset="" />
 
@@ -54,7 +54,7 @@
                     @foreach (Filme filme in Model.FilmesPopulares!)
                     {
                         <div class="bg-[#1A1A1A] rounded-lg pb-5 flex-shrink-0 break-words w-[150px] md:w-[200px]">
-                            <a href="obra">
+                            <a href="obra/@filme.Codigo">
                                 <figure class="relative mb-3">
                                     <img draggable="false" class="cursor-pointer hover:bg-black hover:opacity-[80%] transition duration-200 ease-in-out w-full h-[218px] md:h-[300px] imgBannerMobile object-cover" src="imgs/banner/@(filme.Codigo).jpg" alt="@filme.Nome - Banner" srcset="" />
                                     <!-- <object class="absolute top-0 left-0 bookmark" data="imgs/icons/bookmark.svg" type=""></object> -->
@@ -85,7 +85,7 @@
                         @foreach (Filme filme in Model.FilmesPopulares!)
                         {
                             <div class="swiper-slide bg-[#1A1A1A] rounded-lg pb-5 flex-shrink-0 break-words w-[150px] md:w-[200px]">
-                                <a href="obra">
+                                <a href="obra/@filme.Codigo">
                                     <figure class="relative mb-3">
                                         <img draggable="false" class="cursor-pointer hover:bg-black hover:opacity-[80%] transition duration-200 ease-in-out w-full h-[218px] md:h-[300px] 2xl:w-full imgBanner object-cover" src="imgs/banner/@(filme.Codigo).jpg" alt="@filme.Nome - Banner" srcset="" />
                                         <!-- <object class="absolute top-0 left-0 bookmark" data="imgs/icons/bookmark.svg" type=""></object> -->
@@ -122,7 +122,7 @@
                     @foreach(Filme filme in Model.FilmesRecentes!)
                     {
                         <div class="bg-[#1A1A1A] rounded-lg pb-5 flex-shrink-0 break-words w-[150px] md:w-[200px]">
-                            <a href="obra">
+                            <a href="obra/@filme.Codigo">
                                 <figure class="relative mb-3">
                                     <img draggable="false" class="cursor-pointer hover:bg-black hover:opacity-[80%] transition duration-200 ease-in-out w-full h-[218px] md:h-[300px]" src="imgs/banner/@(filme.Codigo).jpg" alt="@filme.Nome - Banner" srcset="" />
                                     <!-- <object class="absolute top-0 left-0 bookmark" data="imgs/icons/bookmark.svg" type=""></object> -->
@@ -153,7 +153,7 @@
                         @foreach (Filme filme in Model.FilmesRecentes!)
                         {
                             <div class="swiper-slide bg-[#1A1A1A] rounded-lg pb-5 flex-shrink-0 break-words w-[150px] md:w-[200px]">
-                                <a href="obra">
+                                <a href="obra/@filme.Codigo">
                                     <figure class="relative mb-3">
                                         <img draggable="false" class="cursor-pointer hover:bg-black hover:opacity-[80%] transition duration-200 ease-in-out w-full h-[218px] md:h-[300px] 2xl:w-full" src="imgs/banner/@(filme.Codigo).jpg" alt="@filme.Nome - Banner" srcset="" />
                                         <!-- <object class="absolute top-0 left-0 bookmark" data="imgs/icons/bookmark.svg" type=""></object> -->
