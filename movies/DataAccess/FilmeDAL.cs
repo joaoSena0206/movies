@@ -79,4 +79,60 @@ public class FilmeDAL
             return filmes;
         }
     }
+
+    public Filme ObterDadosFilme(int cdFilme)
+    {
+        string comando = @"
+        SELECT 
+	        nm_filme,
+	        nm_original_filme,
+	        dt_ano_lancamento,
+	        nm_faixa_etaria,
+	        qt_duracao_filme,
+	        STRING_AGG(nm_genero, ',') AS nm_genero,
+	        ds_sinopse_filme,
+	        qt_avaliacao_filme,
+	        nm_diretor
+        FROM filme AS f
+        JOIN filme_genero fg ON (f.cd_filme = fg.cd_filme)
+        JOIN genero g ON (g.cd_genero = fg.cd_genero)
+        JOIN diretor d ON (f.cd_diretor = d.cd_diretor)
+        WHERE f.cd_filme = @CdFilme
+        GROUP BY
+	        nm_filme,
+	        nm_original_filme,
+	        dt_ano_lancamento,
+	        nm_faixa_etaria,
+	        qt_duracao_filme,
+	        ds_sinopse_filme,
+	        qt_avaliacao_filme,
+	        nm_diretor";
+
+        List<SqlParameter> parameters = new List<SqlParameter>();
+        parameters.Add(new SqlParameter("CdFilme", cdFilme));
+
+        Filme filme = new Filme();
+
+        using (SqlDataReader reader = _banco.ExecutarConsulta(comando, parameters))
+        {
+            if (reader.Read())
+            {
+                Diretor diretor = new Diretor();
+                diretor.Nome = reader.GetString(8);
+
+                filme.Codigo = cdFilme;
+                filme.Nome = reader.GetString(0);
+                filme.NomeOriginal = reader.GetString(1);
+                filme.AnoLancamento = reader.GetInt32(2);
+                filme.FaixaEtaria = reader.GetString(3);
+                filme.Duracao = reader.GetTimeSpan(4);
+                filme.Generos = reader.GetString(5).Split(",");
+                filme.Sinopse = reader.GetString(6);
+                filme.Avaliacao = reader.GetInt32(7);
+                filme.Diretor = diretor;
+            }
+        }
+
+        return filme;
+    }
 }
