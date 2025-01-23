@@ -25,7 +25,7 @@ public class Filme
     public Diretor? Diretor { get; set; }
 
     [Required]
-    public ICollection<Genero> Generos { get; set; }
+    public ICollection<string> Generos { get; set; }
 
     public int AnoLancamento { get; set; }
     public TimeSpan Duracao { get; set; }
@@ -37,6 +37,6 @@ public class Filme
         this.NomeOriginal = string.Empty;
         this.FaixaEtaria = string.Empty;
         this.Sinopse = string.Empty;
-        this.Generos = new List<Genero>();
+        this.Generos = new List<string>();
     }
 }
