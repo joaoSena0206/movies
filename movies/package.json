@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build:css": "postcss wwwroot/css/antesBuild.css -o wwwroot/css/style.css --watch"
+    "build:css": "postcss wwwroot/css/antesBuild.css -o wwwroot/css/style.css --watch",
+    "prod:css": "postcss wwwroot/css/antesBuild.css -o wwwroot/css/style.css --minify"
   },
   "keywords": [],
   "author": "",
