@@ -17,7 +17,7 @@ CREATE TABLE filme (
 	nm_faixa_etaria NVARCHAR(255) NOT NULL,
 	qt_duracao_filme TIME,
 	qt_avaliacao_filme DECIMAL(3,1),
-	ds_sinopse_filme TEXT NOT NULL,
+	ds_sinopse_filme NVARCHAR(MAX) NOT NULL,
 	cd_diretor INT NOT NULL,
 
 	CONSTRAINT fk_diretor_filme FOREIGN KEY (cd_diretor) REFERENCES diretor(cd_diretor)
