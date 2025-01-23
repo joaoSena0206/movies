@@ -128,7 +128,7 @@ public class FilmeDAL
                 filme.Duracao = reader.GetTimeSpan(4);
                 filme.Generos = reader.GetString(5).Split(",");
                 filme.Sinopse = reader.GetString(6);
-                filme.Avaliacao = reader.GetInt32(7);
+                filme.Avaliacao = reader.GetDecimal(7);
                 filme.Diretor = diretor;
             }
         }
