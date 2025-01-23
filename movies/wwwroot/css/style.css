@@ -556,26 +556,29 @@ video {
 .hidden {
   display: none;
 }
+.h-\[145px\] {
+  height: 145px;
+}
 .h-\[218px\] {
   height: 218px;
 }
-.h-\[240px\] {
-  height: 240px;
+.h-\[50px\] {
+  height: 50px;
 }
 .h-screen {
   height: 100vh;
 }
-.\!h-\[240px\] {
-  height: 240px !important;
+.h-\[200px\] {
+  height: 200px;
 }
-.h-\[145px\] {
-  height: 145px;
+.h-\[300px\] {
+  height: 300px;
 }
 .max-h-\[90px\] {
   max-height: 90px;
 }
-.max-h-\[240px\] {
-  max-height: 240px;
+.max-h-\[100px\] {
+  max-height: 100px;
 }
 .min-h-\[100vh\] {
   min-height: 100vh;
@@ -612,6 +615,9 @@ video {
 }
 .cursor-pointer {
   cursor: pointer;
+}
+.resize {
+  resize: both;
 }
 .list-disc {
   list-style-type: disc;
@@ -1000,6 +1006,14 @@ button, input, textarea {
     height: 218px;
   }
 
+  .sm\:h-\[500px\] {
+    height: 500px;
+  }
+
+  .sm\:h-\[400px\] {
+    height: 400px;
+  }
+
   .sm\:max-h-\[160px\] {
     max-height: 160px;
   }
@@ -1031,16 +1045,24 @@ button, input, textarea {
 
 @media (min-width: 768px) {
 
+  .md\:h-\[300px\] {
+    height: 300px;
+  }
+
   .md\:h-\[auto\] {
     height: auto;
   }
 
-  .md\:h-auto {
-    height: auto;
+  .md\:h-\[500px\] {
+    height: 500px;
   }
 
-  .md\:h-\[300px\] {
-    height: 300px;
+  .md\:h-\[550px\] {
+    height: 550px;
+  }
+
+  .md\:h-\[600px\] {
+    height: 600px;
   }
 
   .md\:w-\[200px\] {

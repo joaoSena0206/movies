@@ -14,8 +14,8 @@
                     {
                         <div class="swiper-slide bg-black text-white p-3">
                             <a href="obra">
-                                <figure class="relative cursor-pointer thumbFigure">
-                                    <img draggable="false" ondragstart="return false;" class="rounded-lg bg-black w-full object-cover imgThumb" src="imgs/thumb/@(filme.Codigo).jpg" alt="@filme.Nome - Thumb" srcset="" />
+                                <figure class="relative cursor-pointer thumbFigure ">
+                                    <img draggable="false" ondragstart="return false;" class="rounded-lg bg-black w-full h-[300px] sm:h-[400px] md:h-[600px] object-cover imgThumb" src="imgs/thumb/@(filme.Codigo).jpg" alt="@filme.Nome - Thumb" srcset="" />
 
                                     <div class="flex bg-hero-info absolute bottom-[-80px] space-x-4 bg-test -ml-3 -mr-3 w-[100vw] px-3 pb-3">
                                         <figure class="relative">
@@ -40,33 +40,6 @@
                         </div>
                     }
                 }
-
-                @* <div class="swiper-slide bg-black text-white p-3">
-                    <a href="obra">
-                        <figure class="relative cursor-pointer thumbFigure">
-                            <img draggable="false" class="rounded-lg bg-black w-full" src="imgs/thumb/inside out.png" alt="Inside Out - Thumb" srcset="" />
-
-                            <div class="flex bg-hero-info absolute bottom-[-80px] space-x-4 bg-test -ml-3 -mr-3 w-[100vw] px-3 pb-3">
-                                <figure class="relative">
-                                    <img draggable="false" class="w-[100px] sm:w-[150px] bg-black banner rounded-lg rounded-tl-none" src="imgs/banner/inside out .png" alt="Inside Out - Banner" srcset="" />
-                                    <!-- <object class="absolute top-0 left-0 bookmark" data="imgs/icons/bookmark.svg" type=""></object> -->
-                                </figure>
-
-                                <div class="lg:flex lg:items-center lg:space-x-5 lg:relative">
-                                    <div class="flex items-center">
-                                        <span class="material-symbols-outlined text-[80px] -ml-3 playSpan" style="font-variation-settings: 'wght' 200"> play_circle </span>
-                                        <p class="lg:absolute lg:-right-[60px] lg:text-[20px]">1:54</p>
-                                    </div>
-
-                                    <div>
-                                        <h1 class="font-bold text-lg sm:text-[25px]">Divertidamente 2</h1>
-                                        <h2 class="text-gray-300 text-sm font-bold sm:text-[18px]">Assistir ao Trailer</h2>
-                                    </div>
-                                </div>
-                            </div>
-                        </figure>
-                    </a>
-                </div> *@
             </div>
         </div>
     </section>
@@ -76,206 +49,64 @@
             <h1 class="text-[20px] mb-5 before:bg-[#f5c518] before:rounded-[4px] before:content-[''] before:h-[100%] before:w-[4px] before:absolute relative before:mr-5 before:left-0 pl-3 font-bold">Populares</h1>
 
             <div class="flex space-x-5 overflow-x-scroll pb-5 relative lg:hidden" style="scrollbar-width: none">
-                <div class="bg-[#1A1A1A] rounded-lg pb-5 flex-shrink-0 break-words">
-                    <a href="obra">
-                        <figure class="relative mb-3">
-                            <img draggable="false" class="cursor-pointer hover:bg-black hover:opacity-[80%] transition duration-200 ease-in-out w-[150px] h-[218px] md:w-[200px] md:h-[auto]" src="imgs/banner/inside out .png" alt="Inside Out - Banner" srcset="" />
-                            <!-- <object class="absolute top-0 left-0 bookmark" data="imgs/icons/bookmark.svg" type=""></object> -->
-                        </figure>
-                    </a>
+                @if (String.IsNullOrEmpty(Model.MensagemErro))
+                {
+                    @foreach (Filme filme in Model.FilmesPopulares!)
+                    {
+                        <div class="bg-[#1A1A1A] rounded-lg pb-5 flex-shrink-0 break-words w-[150px] md:w-[200px]">
+                            <a href="obra">
+                                <figure class="relative mb-3">
+                                    <img draggable="false" class="cursor-pointer hover:bg-black hover:opacity-[80%] transition duration-200 ease-in-out w-full h-[218px] md:h-[300px] imgBannerMobile object-cover" src="imgs/banner/@(filme.Codigo).jpg" alt="@filme.Nome - Banner" srcset="" />
+                                    <!-- <object class="absolute top-0 left-0 bookmark" data="imgs/icons/bookmark.svg" type=""></object> -->
+                                </figure>
+                            </a>
 
-                    <div class="px-2">
-                        <div class="mb-3 flex space-x-4 items-center">
-                            <div class="flex space-x-1 items-center">
-                                <span class="material-symbols-outlined material-symbols-filled text-[#f5c518] text-[20px]"> star </span>
-                                <p class="text-zinc-300">6,5</p>
+                            <div class="px-2">
+                                <div class="mb-3 flex space-x-4 items-center">
+                                    <div class="flex space-x-1 items-center">
+                                        <span class="material-symbols-outlined material-symbols-filled text-[#f5c518] text-[20px]"> star </span>
+                                        <p class="text-zinc-300">6,5</p>
+                                    </div>
+
+                                    <span class="material-symbols-outlined text-blue-300 text-[22px] p-2 rounded-lg hover:bg-[#2c2c2c] hover:text-white transition duration-200 ease-in-out cursor-pointer" style="font-variation-settings: 'wght' 200"> star </span>
+                                </div>
+
+                                <h2>@filme.Nome</h2>
                             </div>
-
-                            <span class="material-symbols-outlined text-blue-300 text-[22px] p-2 rounded-lg hover:bg-[#2c2c2c] hover:text-white transition duration-200 ease-in-out cursor-pointer" style="font-variation-settings: 'wght' 200"> star </span>
                         </div>
-
-                        <h2>Divertidamente 2</h2>
-                    </div>
-                </div>
-
-                <div class="bg-[#1A1A1A] rounded-lg pb-5 flex-shrink-0 break-words">
-                    <a href="obra">
-                        <figure class="relative mb-3">
-                            <img draggable="false" class="cursor-pointer hover:bg-black hover:opacity-[80%] transition duration-200 ease-in-out w-[150px] h-[218px] md:w-[200px] md:h-[auto]" src="imgs/banner/inside out .png" alt="Inside Out - Banner" srcset="" />
-                            <!-- <object class="absolute top-0 left-0 bookmark" data="imgs/icons/bookmark.svg" type=""></object> -->
-                        </figure>
-                    </a>
-
-                    <div class="px-2">
-                        <div class="mb-3 flex space-x-4 items-center">
-                            <div class="flex space-x-1 items-center">
-                                <span class="material-symbols-outlined material-symbols-filled text-[#f5c518] text-[20px]"> star </span>
-                                <p class="text-zinc-300">6,5</p>
-                            </div>
-
-                            <span class="material-symbols-outlined text-blue-300 text-[22px] p-2 rounded-lg hover:bg-[#2c2c2c] hover:text-white transition duration-200 ease-in-out cursor-pointer" style="font-variation-settings: 'wght' 200"> star </span>
-                        </div>
-
-                        <h2>Divertidamente 2</h2>
-                    </div>
-                </div>
-
-                <div class="bg-[#1A1A1A] rounded-lg pb-5 flex-shrink-0 break-words">
-                    <a href="obra">
-                        <figure class="relative mb-3">
-                            <img draggable="false" class="cursor-pointer hover:bg-black hover:opacity-[80%] transition duration-200 ease-in-out w-[150px] h-[218px] md:w-[200px] md:h-[auto]" src="imgs/banner/inside out .png" alt="Inside Out - Banner" srcset="" />
-                            <!-- <object class="absolute top-0 left-0 bookmark" data="imgs/icons/bookmark.svg" type=""></object> -->
-                        </figure>
-                    </a>
-
-                    <div class="px-2">
-                        <div class="mb-3 flex space-x-4 items-center">
-                            <div class="flex space-x-1 items-center">
-                                <span class="material-symbols-outlined material-symbols-filled text-[#f5c518] text-[20px]"> star </span>
-                                <p class="text-zinc-300">6,5</p>
-                            </div>
-
-                            <span class="material-symbols-outlined text-blue-300 text-[22px] p-2 rounded-lg hover:bg-[#2c2c2c] hover:text-white transition duration-200 ease-in-out cursor-pointer" style="font-variation-settings: 'wght' 200"> star </span>
-                        </div>
-
-                        <h2>Divertidamente 2</h2>
-                    </div>
-                </div>
-
-                <div class="bg-[#1A1A1A] rounded-lg pb-5 flex-shrink-0 break-words">
-                    <a href="obra">
-                        <figure class="relative mb-3">
-                            <img draggable="false" class="cursor-pointer hover:bg-black hover:opacity-[80%] transition duration-200 ease-in-out w-[150px] h-[218px] md:w-[200px] md:h-[auto]" src="imgs/banner/inside out .png" alt="Inside Out - Banner" srcset="" />
-                            <!-- <object class="absolute top-0 left-0 bookmark" data="imgs/icons/bookmark.svg" type=""></object> -->
-                        </figure>
-                    </a>
-
-                    <div class="px-2">
-                        <div class="mb-3 flex space-x-4 items-center">
-                            <div class="flex space-x-1 items-center">
-                                <span class="material-symbols-outlined material-symbols-filled text-[#f5c518] text-[20px]"> star </span>
-                                <p class="text-zinc-300">6,5</p>
-                            </div>
-
-                            <span class="material-symbols-outlined text-blue-300 text-[22px] p-2 rounded-lg hover:bg-[#2c2c2c] hover:text-white transition duration-200 ease-in-out cursor-pointer" style="font-variation-settings: 'wght' 200"> star </span>
-                        </div>
-
-                        <h2>Divertidamente 2</h2>
-                    </div>
-                </div>
+                    }
+                }
             </div>
 
             <div class="swiper swiper-filmes hidden lg:flex" style="scrollbar-width: none">
                 <div class="swiper-wrapper flex pb-5 relative">
-                    <div class="swiper-slide bg-[#1A1A1A] rounded-lg pb-5 flex-shrink-0 break-words">
-                        <a href="obra">
-                            <figure class="relative mb-3">
-                                <img draggable="false" class="cursor-pointer hover:bg-black hover:opacity-[80%] transition duration-200 ease-in-out w-[150px] h-[218px] md:w-[200px] md:h-[auto] 2xl:w-full" src="imgs/banner/inside out .png" alt="Inside Out - Banner" srcset="" />
-                                <!-- <object class="absolute top-0 left-0 bookmark" data="imgs/icons/bookmark.svg" type=""></object> -->
-                            </figure>
-                        </a>
+                    @if (String.IsNullOrEmpty(Model.MensagemErro))
+                    {
+                        @foreach (Filme filme in Model.FilmesPopulares!)
+                        {
+                            <div class="swiper-slide bg-[#1A1A1A] rounded-lg pb-5 flex-shrink-0 break-words w-[150px] md:w-[200px]">
+                                <a href="obra">
+                                    <figure class="relative mb-3">
+                                        <img draggable="false" class="cursor-pointer hover:bg-black hover:opacity-[80%] transition duration-200 ease-in-out w-full h-[218px] md:h-[300px] 2xl:w-full imgBanner object-cover" src="imgs/banner/@(filme.Codigo).jpg" alt="@filme.Nome - Banner" srcset="" />
+                                        <!-- <object class="absolute top-0 left-0 bookmark" data="imgs/icons/bookmark.svg" type=""></object> -->
+                                    </figure>
+                                </a>
 
-                        <div class="px-2">
-                            <div class="mb-3 flex space-x-4 items-center">
-                                <div class="flex space-x-1 items-center">
-                                    <span class="material-symbols-outlined material-symbols-filled text-[#f5c518] text-[20px]"> star </span>
-                                    <p class="text-zinc-300">6,5</p>
+                                <div class="px-2">
+                                    <div class="mb-3 flex space-x-4 items-center">
+                                        <div class="flex space-x-1 items-center">
+                                            <span class="material-symbols-outlined material-symbols-filled text-[#f5c518] text-[20px]"> star </span>
+                                            <p class="text-zinc-300">6,5</p>
+                                        </div>
+
+                                        <span class="material-symbols-outlined text-blue-300 text-[22px] p-2 rounded-lg hover:bg-[#2c2c2c] hover:text-white transition duration-200 ease-in-out cursor-pointer" style="font-variation-settings: 'wght' 200"> star </span>
+                                    </div>
+
+                                    <h2>@filme.Nome</h2>
                                 </div>
-
-                                <span class="material-symbols-outlined text-blue-300 text-[22px] p-2 rounded-lg hover:bg-[#2c2c2c] hover:text-white transition duration-200 ease-in-out cursor-pointer" style="font-variation-settings: 'wght' 200"> star </span>
                             </div>
-
-                            <h2>Divertidamente 2</h2>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide bg-[#1A1A1A] rounded-lg pb-5 flex-shrink-0 break-words">
-                        <a href="obra">
-                            <figure class="relative mb-3">
-                                <img draggable="false" class="cursor-pointer hover:bg-black hover:opacity-[80%] transition duration-200 ease-in-out w-[150px] h-[218px] md:w-[200px] md:h-[auto] 2xl:w-full" src="imgs/banner/inside out .png" alt="Inside Out - Banner" srcset="" />
-                                <!-- <object class="absolute top-0 left-0 bookmark" data="imgs/icons/bookmark.svg" type=""></object> -->
-                            </figure>
-                        </a>
-
-                        <div class="px-2">
-                            <div class="mb-3 flex space-x-4 items-center">
-                                <div class="flex space-x-1 items-center">
-                                    <span class="material-symbols-outlined material-symbols-filled text-[#f5c518] text-[20px]"> star </span>
-                                    <p class="text-zinc-300">6,5</p>
-                                </div>
-
-                                <span class="material-symbols-outlined text-blue-300 text-[22px] p-2 rounded-lg hover:bg-[#2c2c2c] hover:text-white transition duration-200 ease-in-out cursor-pointer" style="font-variation-settings: 'wght' 200"> star </span>
-                            </div>
-
-                            <h2>Divertidamente 2</h2>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide bg-[#1A1A1A] rounded-lg pb-5 flex-shrink-0 break-words">
-                        <a href="obra">
-                            <figure class="relative mb-3">
-                                <img draggable="false" class="cursor-pointer hover:bg-black hover:opacity-[80%] transition duration-200 ease-in-out w-[150px] h-[218px] md:w-[200px] md:h-[auto] 2xl:w-full" src="imgs/banner/inside out .png" alt="Inside Out - Banner" srcset="" />
-                                <!-- <object class="absolute top-0 left-0 bookmark" data="imgs/icons/bookmark.svg" type=""></object> -->
-                            </figure>
-                        </a>
-
-                        <div class="px-2">
-                            <div class="mb-3 flex space-x-4 items-center">
-                                <div class="flex space-x-1 items-center">
-                                    <span class="material-symbols-outlined material-symbols-filled text-[#f5c518] text-[20px]"> star </span>
-                                    <p class="text-zinc-300">6,5</p>
-                                </div>
-
-                                <span class="material-symbols-outlined text-blue-300 text-[22px] p-2 rounded-lg hover:bg-[#2c2c2c] hover:text-white transition duration-200 ease-in-out cursor-pointer" style="font-variation-settings: 'wght' 200"> star </span>
-                            </div>
-
-                            <h2>Divertidamente 2</h2>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide bg-[#1A1A1A] rounded-lg pb-5 flex-shrink-0 break-words">
-                        <a href="obra">
-                            <figure class="relative mb-3">
-                                <img draggable="false" class="cursor-pointer hover:bg-black hover:opacity-[80%] transition duration-200 ease-in-out w-[150px] h-[218px] md:w-[200px] md:h-[auto] 2xl:w-full" src="imgs/banner/inside out .png" alt="Inside Out - Banner" srcset="" />
-                                <!-- <object class="absolute top-0 left-0 bookmark" data="imgs/icons/bookmark.svg" type=""></object> -->
-                            </figure>
-                        </a>
-
-                        <div class="px-2">
-                            <div class="mb-3 flex space-x-4 items-center">
-                                <div class="flex space-x-1 items-center">
-                                    <span class="material-symbols-outlined material-symbols-filled text-[#f5c518] text-[20px]"> star </span>
-                                    <p class="text-zinc-300">6,5</p>
-                                </div>
-
-                                <span class="material-symbols-outlined text-blue-300 text-[22px] p-2 rounded-lg hover:bg-[#2c2c2c] hover:text-white transition duration-200 ease-in-out cursor-pointer" style="font-variation-settings: 'wght' 200"> star </span>
-                            </div>
-
-                            <h2>Divertidamente 2</h2>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide bg-[#1A1A1A] rounded-lg pb-5 flex-shrink-0 break-words">
-                        <a href="obra">
-                            <figure class="relative mb-3">
-                                <img draggable="false" class="cursor-pointer hover:bg-black hover:opacity-[80%] transition duration-200 ease-in-out w-[150px] h-[218px] md:w-[200px] md:h-[auto] 2xl:w-full" src="imgs/banner/inside out .png" alt="Inside Out - Banner" srcset="" />
-                                <!-- <object class="absolute top-0 left-0 bookmark" data="imgs/icons/bookmark.svg" type=""></object> -->
-                            </figure>
-                        </a>
-
-                        <div class="px-2">
-                            <div class="mb-3 flex space-x-4 items-center">
-                                <div class="flex space-x-1 items-center">
-                                    <span class="material-symbols-outlined material-symbols-filled text-[#f5c518] text-[20px]"> star </span>
-                                    <p class="text-zinc-300">6,5</p>
-                                </div>
-
-                                <span class="material-symbols-outlined text-blue-300 text-[22px] p-2 rounded-lg hover:bg-[#2c2c2c] hover:text-white transition duration-200 ease-in-out cursor-pointer" style="font-variation-settings: 'wght' 200"> star </span>
-                            </div>
-
-                            <h2>Divertidamente 2</h2>
-                        </div>
-                    </div>
+                        }
+                    }
                 </div>
             </div>
         </div>
@@ -286,206 +117,64 @@
             <h1 class="text-[20px] mb-5 before:bg-[#f5c518] before:rounded-[4px] before:content-[''] before:h-[100%] before:w-[4px] before:absolute relative before:mr-5 before:left-0 pl-3 font-bold">Recentes</h1>
 
             <div class="flex space-x-5 overflow-x-scroll pb-5 relative lg:hidden" style="scrollbar-width: none">
-                <div class="bg-[#1A1A1A] rounded-lg pb-5 flex-shrink-0 break-words">
-                    <a href="obra">
-                        <figure class="relative mb-3">
-                            <img draggable="false" class="cursor-pointer hover:bg-black hover:opacity-[80%] transition duration-200 ease-in-out w-[150px] h-[218px] md:w-[200px] md:h-[auto]" src="imgs/banner/inside out .png" alt="Inside Out - Banner" srcset="" />
-                            <!-- <object class="absolute top-0 left-0 bookmark" data="imgs/icons/bookmark.svg" type=""></object> -->
-                        </figure>
-                    </a>
+                @if (String.IsNullOrEmpty(Model.MensagemErro))
+                {
+                    @foreach(Filme filme in Model.FilmesRecentes!)
+                    {
+                        <div class="bg-[#1A1A1A] rounded-lg pb-5 flex-shrink-0 break-words w-[150px] md:w-[200px]">
+                            <a href="obra">
+                                <figure class="relative mb-3">
+                                    <img draggable="false" class="cursor-pointer hover:bg-black hover:opacity-[80%] transition duration-200 ease-in-out w-full h-[218px] md:h-[300px]" src="imgs/banner/@(filme.Codigo).jpg" alt="@filme.Nome - Banner" srcset="" />
+                                    <!-- <object class="absolute top-0 left-0 bookmark" data="imgs/icons/bookmark.svg" type=""></object> -->
+                                </figure>
+                            </a>
 
-                    <div class="px-2">
-                        <div class="mb-3 flex space-x-4 items-center">
-                            <div class="flex space-x-1 items-center">
-                                <span class="material-symbols-outlined material-symbols-filled text-[#f5c518] text-[20px]"> star </span>
-                                <p class="text-zinc-300">6,5</p>
+                            <div class="px-2">
+                                <div class="mb-3 flex space-x-4 items-center">
+                                    <div class="flex space-x-1 items-center">
+                                        <span class="material-symbols-outlined material-symbols-filled text-[#f5c518] text-[20px]"> star </span>
+                                        <p class="text-zinc-300">6,5</p>
+                                    </div>
+
+                                    <span class="material-symbols-outlined text-blue-300 text-[22px] p-2 rounded-lg hover:bg-[#2c2c2c] hover:text-white transition duration-200 ease-in-out cursor-pointer" style="font-variation-settings: 'wght' 200"> star </span>
+                                </div>
+
+                                <h2>@filme.Nome</h2>
                             </div>
-
-                            <span class="material-symbols-outlined text-blue-300 text-[22px] p-2 rounded-lg hover:bg-[#2c2c2c] hover:text-white transition duration-200 ease-in-out cursor-pointer" style="font-variation-settings: 'wght' 200"> star </span>
                         </div>
-
-                        <h2>Divertidamente 2</h2>
-                    </div>
-                </div>
-
-                <div class="bg-[#1A1A1A] rounded-lg pb-5 flex-shrink-0 break-words">
-                    <a href="obra">
-                        <figure class="relative mb-3">
-                            <img draggable="false" class="cursor-pointer hover:bg-black hover:opacity-[80%] transition duration-200 ease-in-out w-[150px] h-[218px] md:w-[200px] md:h-[auto]" src="imgs/banner/inside out .png" alt="Inside Out - Banner" srcset="" />
-                            <!-- <object class="absolute top-0 left-0 bookmark" data="imgs/icons/bookmark.svg" type=""></object> -->
-                        </figure>
-                    </a>
-
-                    <div class="px-2">
-                        <div class="mb-3 flex space-x-4 items-center">
-                            <div class="flex space-x-1 items-center">
-                                <span class="material-symbols-outlined material-symbols-filled text-[#f5c518] text-[20px]"> star </span>
-                                <p class="text-zinc-300">6,5</p>
-                            </div>
-
-                            <span class="material-symbols-outlined text-blue-300 text-[22px] p-2 rounded-lg hover:bg-[#2c2c2c] hover:text-white transition duration-200 ease-in-out cursor-pointer" style="font-variation-settings: 'wght' 200"> star </span>
-                        </div>
-
-                        <h2>Divertidamente 2</h2>
-                    </div>
-                </div>
-
-                <div class="bg-[#1A1A1A] rounded-lg pb-5 flex-shrink-0 break-words">
-                    <a href="obra">
-                        <figure class="relative mb-3">
-                            <img draggable="false" class="cursor-pointer hover:bg-black hover:opacity-[80%] transition duration-200 ease-in-out w-[150px] h-[218px] md:w-[200px] md:h-[auto]" src="imgs/banner/inside out .png" alt="Inside Out - Banner" srcset="" />
-                            <!-- <object class="absolute top-0 left-0 bookmark" data="imgs/icons/bookmark.svg" type=""></object> -->
-                        </figure>
-                    </a>
-
-                    <div class="px-2">
-                        <div class="mb-3 flex space-x-4 items-center">
-                            <div class="flex space-x-1 items-center">
-                                <span class="material-symbols-outlined material-symbols-filled text-[#f5c518] text-[20px]"> star </span>
-                                <p class="text-zinc-300">6,5</p>
-                            </div>
-
-                            <span class="material-symbols-outlined text-blue-300 text-[22px] p-2 rounded-lg hover:bg-[#2c2c2c] hover:text-white transition duration-200 ease-in-out cursor-pointer" style="font-variation-settings: 'wght' 200"> star </span>
-                        </div>
-
-                        <h2>Divertidamente 2</h2>
-                    </div>
-                </div>
-
-                <div class="bg-[#1A1A1A] rounded-lg pb-5 flex-shrink-0 break-words">
-                    <a href="obra">
-                        <figure class="relative mb-3">
-                            <img draggable="false" class="cursor-pointer hover:bg-black hover:opacity-[80%] transition duration-200 ease-in-out w-[150px] h-[218px] md:w-[200px] md:h-[auto]" src="imgs/banner/inside out .png" alt="Inside Out - Banner" srcset="" />
-                            <!-- <object class="absolute top-0 left-0 bookmark" data="imgs/icons/bookmark.svg" type=""></object> -->
-                        </figure>
-                    </a>
-
-                    <div class="px-2">
-                        <div class="mb-3 flex space-x-4 items-center">
-                            <div class="flex space-x-1 items-center">
-                                <span class="material-symbols-outlined material-symbols-filled text-[#f5c518] text-[20px]"> star </span>
-                                <p class="text-zinc-300">6,5</p>
-                            </div>
-
-                            <span class="material-symbols-outlined text-blue-300 text-[22px] p-2 rounded-lg hover:bg-[#2c2c2c] hover:text-white transition duration-200 ease-in-out cursor-pointer" style="font-variation-settings: 'wght' 200"> star </span>
-                        </div>
-
-                        <h2>Divertidamente 2</h2>
-                    </div>
-                </div>
+                    }
+                }
             </div>
 
             <div class="swiper swiper-filmes hidden lg:flex" style="scrollbar-width: none">
                 <div class="swiper-wrapper flex pb-5 relative">
-                    <div class="swiper-slide bg-[#1A1A1A] rounded-lg pb-5 flex-shrink-0 break-words">
-                        <a href="obra">
-                            <figure class="relative mb-3">
-                                <img draggable="false" class="cursor-pointer hover:bg-black hover:opacity-[80%] transition duration-200 ease-in-out w-[150px] h-[218px] md:w-[200px] md:h-[auto] 2xl:w-full" src="imgs/banner/inside out .png" alt="Inside Out - Banner" srcset="" />
-                                <!-- <object class="absolute top-0 left-0 bookmark" data="imgs/icons/bookmark.svg" type=""></object> -->
-                            </figure>
-                        </a>
+                    @if (String.IsNullOrEmpty(Model.MensagemErro))
+                    {
+                        @foreach (Filme filme in Model.FilmesRecentes!)
+                        {
+                            <div class="swiper-slide bg-[#1A1A1A] rounded-lg pb-5 flex-shrink-0 break-words w-[150px] md:w-[200px]">
+                                <a href="obra">
+                                    <figure class="relative mb-3">
+                                        <img draggable="false" class="cursor-pointer hover:bg-black hover:opacity-[80%] transition duration-200 ease-in-out w-full h-[218px] md:h-[300px] 2xl:w-full" src="imgs/banner/@(filme.Codigo).jpg" alt="@filme.Nome - Banner" srcset="" />
+                                        <!-- <object class="absolute top-0 left-0 bookmark" data="imgs/icons/bookmark.svg" type=""></object> -->
+                                    </figure>
+                                </a>
 
-                        <div class="px-2">
-                            <div class="mb-3 flex space-x-4 items-center">
-                                <div class="flex space-x-1 items-center">
-                                    <span class="material-symbols-outlined material-symbols-filled text-[#f5c518] text-[20px]"> star </span>
-                                    <p class="text-zinc-300">6,5</p>
+                                <div class="px-2">
+                                    <div class="mb-3 flex space-x-4 items-center">
+                                        <div class="flex space-x-1 items-center">
+                                            <span class="material-symbols-outlined material-symbols-filled text-[#f5c518] text-[20px]"> star </span>
+                                            <p class="text-zinc-300">6,5</p>
+                                        </div>
+
+                                        <span class="material-symbols-outlined text-blue-300 text-[22px] p-2 rounded-lg hover:bg-[#2c2c2c] hover:text-white transition duration-200 ease-in-out cursor-pointer" style="font-variation-settings: 'wght' 200"> star </span>
+                                    </div>
+
+                                    <h2>@filme.Nome</h2>
                                 </div>
-
-                                <span class="material-symbols-outlined text-blue-300 text-[22px] p-2 rounded-lg hover:bg-[#2c2c2c] hover:text-white transition duration-200 ease-in-out cursor-pointer" style="font-variation-settings: 'wght' 200"> star </span>
                             </div>
-
-                            <h2>Divertidamente 2</h2>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide bg-[#1A1A1A] rounded-lg pb-5 flex-shrink-0 break-words">
-                        <a href="obra">
-                            <figure class="relative mb-3">
-                                <img draggable="false" class="cursor-pointer hover:bg-black hover:opacity-[80%] transition duration-200 ease-in-out w-[150px] h-[218px] md:w-[200px] md:h-[auto] 2xl:w-full" src="imgs/banner/inside out .png" alt="Inside Out - Banner" srcset="" />
-                                <!-- <object class="absolute top-0 left-0 bookmark" data="imgs/icons/bookmark.svg" type=""></object> -->
-                            </figure>
-                        </a>
-
-                        <div class="px-2">
-                            <div class="mb-3 flex space-x-4 items-center">
-                                <div class="flex space-x-1 items-center">
-                                    <span class="material-symbols-outlined material-symbols-filled text-[#f5c518] text-[20px]"> star </span>
-                                    <p class="text-zinc-300">6,5</p>
-                                </div>
-
-                                <span class="material-symbols-outlined text-blue-300 text-[22px] p-2 rounded-lg hover:bg-[#2c2c2c] hover:text-white transition duration-200 ease-in-out cursor-pointer" style="font-variation-settings: 'wght' 200"> star </span>
-                            </div>
-
-                            <h2>Divertidamente 2</h2>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide bg-[#1A1A1A] rounded-lg pb-5 flex-shrink-0 break-words">
-                        <a href="obra">
-                            <figure class="relative mb-3">
-                                <img draggable="false" class="cursor-pointer hover:bg-black hover:opacity-[80%] transition duration-200 ease-in-out w-[150px] h-[218px] md:w-[200px] md:h-[auto] 2xl:w-full" src="imgs/banner/inside out .png" alt="Inside Out - Banner" srcset="" />
-                                <!-- <object class="absolute top-0 left-0 bookmark" data="imgs/icons/bookmark.svg" type=""></object> -->
-                            </figure>
-                        </a>
-
-                        <div class="px-2">
-                            <div class="mb-3 flex space-x-4 items-center">
-                                <div class="flex space-x-1 items-center">
-                                    <span class="material-symbols-outlined material-symbols-filled text-[#f5c518] text-[20px]"> star </span>
-                                    <p class="text-zinc-300">6,5</p>
-                                </div>
-
-                                <span class="material-symbols-outlined text-blue-300 text-[22px] p-2 rounded-lg hover:bg-[#2c2c2c] hover:text-white transition duration-200 ease-in-out cursor-pointer" style="font-variation-settings: 'wght' 200"> star </span>
-                            </div>
-
-                            <h2>Divertidamente 2</h2>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide bg-[#1A1A1A] rounded-lg pb-5 flex-shrink-0 break-words">
-                        <a href="obra">
-                            <figure class="relative mb-3">
-                                <img draggable="false" class="cursor-pointer hover:bg-black hover:opacity-[80%] transition duration-200 ease-in-out w-[150px] h-[218px] md:w-[200px] md:h-[auto] 2xl:w-full" src="imgs/banner/inside out .png" alt="Inside Out - Banner" srcset="" />
-                                <!-- <object class="absolute top-0 left-0 bookmark" data="imgs/icons/bookmark.svg" type=""></object> -->
-                            </figure>
-                        </a>
-
-                        <div class="px-2">
-                            <div class="mb-3 flex space-x-4 items-center">
-                                <div class="flex space-x-1 items-center">
-                                    <span class="material-symbols-outlined material-symbols-filled text-[#f5c518] text-[20px]"> star </span>
-                                    <p class="text-zinc-300">6,5</p>
-                                </div>
-
-                                <span class="material-symbols-outlined text-blue-300 text-[22px] p-2 rounded-lg hover:bg-[#2c2c2c] hover:text-white transition duration-200 ease-in-out cursor-pointer" style="font-variation-settings: 'wght' 200"> star </span>
-                            </div>
-
-                            <h2>Divertidamente 2</h2>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide bg-[#1A1A1A] rounded-lg pb-5 flex-shrink-0 break-words">
-                        <a href="obra">
-                            <figure class="relative mb-3">
-                                <img draggable="false" class="cursor-pointer hover:bg-black hover:opacity-[80%] transition duration-200 ease-in-out w-[150px] h-[218px] md:w-[200px] md:h-[auto] 2xl:w-full" src="imgs/banner/inside out .png" alt="Inside Out - Banner" srcset="" />
-                                <!-- <object class="absolute top-0 left-0 bookmark" data="imgs/icons/bookmark.svg" type=""></object> -->
-                            </figure>
-                        </a>
-
-                        <div class="px-2">
-                            <div class="mb-3 flex space-x-4 items-center">
-                                <div class="flex space-x-1 items-center">
-                                    <span class="material-symbols-outlined material-symbols-filled text-[#f5c518] text-[20px]"> star </span>
-                                    <p class="text-zinc-300">6,5</p>
-                                </div>
-
-                                <span class="material-symbols-outlined text-blue-300 text-[22px] p-2 rounded-lg hover:bg-[#2c2c2c] hover:text-white transition duration-200 ease-in-out cursor-pointer" style="font-variation-settings: 'wght' 200"> star </span>
-                            </div>
-
-                            <h2>Divertidamente 2</h2>
-                        </div>
-                    </div>
+                        }
+                    }
                 </div>
             </div>
         </div>
