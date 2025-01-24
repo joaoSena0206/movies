@@ -135,4 +135,42 @@ public class FilmeDAL
 
         return filme;
     }
+
+    public List<Filme> PesquisarFilmes(string valor)
+    {
+        string comando = @"
+        SELECT
+	        cd_filme,
+	        nm_filme,
+	        dt_ano_lancamento,
+	        nm_diretor
+        FROM filme AS f
+        JOIN diretor d ON (f.cd_diretor = d.cd_diretor)
+        WHERE nm_filme LIKE '%' + @Pesquisa + '%'";
+
+        List<SqlParameter> parametros = new List<SqlParameter>();
+        parametros.Add(new SqlParameter("Pesquisa", valor));
+
+        List<Filme> filmes = new List<Filme>();
+
+        using (SqlDataReader reader = _banco.ExecutarConsulta(comando, parametros))
+        {
+
+            while (reader.Read())
+            {
+                Filme filme = new Filme();
+                Diretor diretor = new Diretor();
+                diretor.Nome = reader.GetString(3);
+
+                filme.Codigo = reader.GetInt32(0);
+                filme.Nome = reader.GetString(1);
+                filme.AnoLancamento = reader.GetInt32(2);
+                filme.Diretor = diretor;
+
+                filmes.Add(filme);
+            }
+        }
+
+        return filmes;
+    }
 }

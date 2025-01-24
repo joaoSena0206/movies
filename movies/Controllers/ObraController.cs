@@ -13,13 +13,18 @@ namespace movies.Controllers
             _filmeDAL = new FilmeDAL(banco);
         }
 
-        [HttpGet("obra/{id}")]
         public IActionResult Index(int id)
-        { 
-           
+        {  
             Filme filme = _filmeDAL.ObterDadosFilme(id);
 
             return View(filme);
+        }
+
+        public IActionResult Pesquisar(string valor)
+        {
+            List<Filme> filmes = _filmeDAL.PesquisarFilmes(valor);
+
+            return Ok(filmes);
         }
     }
 }
