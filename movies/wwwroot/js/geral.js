@@ -49,4 +49,10 @@ $(function () {
     banner.on("mouseleave", function () {
         this.style.opacity = "100%";
     });
+
+    $(document).on("dragstart", function (e) {
+        if (e.target.nodeName.toLowerCase() == "img" || e.target.nodeName.toLowerCase() == "a") {
+            return false;
+        }
+    });
 });

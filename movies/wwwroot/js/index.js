@@ -34,6 +34,7 @@ $(function () {
         allowTouchMove: true,
         spaceBetween: 30
     });
+    const slideBanner = $(".slideBanner");
 
     // Adiciona efeito hover no ícone de bookmark
     bookmark.on("mouseenter", function () {
@@ -76,5 +77,12 @@ $(function () {
 
     banner.on("mouseleave", function () {
         this.style.opacity = "100%";
+    });
+
+    makeImgSameHeight(slideBanner);
+
+    $(window).on("resize", () => {
+        slideBanner.css("height", "auto");
+        makeImgSameHeight(slideBanner);
     });
 });
