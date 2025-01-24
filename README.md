@@ -72,3 +72,19 @@ Foi criado somente com o propósito para treinar habilidades em ASP.NET Core MVC
 	```bash
 	dotnet run
 	```
+	
+## Uso
+
+1. Acesse https://localhost:7118
+
+2. Utilize a barra de pesquisa para buscar filmes ou clique em algum para ver detalhes sobre ele.
+
+## Funcionalidades
+
+- Pesquisar filmes.
+
+- Exibir informações detalhadas do filme.
+
+## Licença
+
+Este projeto está licenciado sob a Licença MIT.
