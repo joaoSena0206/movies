@@ -75,7 +75,7 @@ Foi criado somente com o propósito para treinar habilidades em ASP.NET Core MVC
 	
 ## Uso
 
-1. Acesse https://localhost:7118
+1. Acesse http://localhost:5277
 
 2. Utilize a barra de pesquisa para buscar filmes ou clique em algum para ver detalhes sobre ele.
 
