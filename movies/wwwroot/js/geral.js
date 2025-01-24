@@ -4,6 +4,13 @@ $(function () {
     const blackBg = $("#blackBg");
     const bookmark = $(".bookmark");
     const banner = $(".banner");
+    const header = $("header");
+    const wrapperHeader = $("#wrapperHeader");
+    const bg = $("#searchBg");
+    bg.css("top", header.height() + "px");
+    bg.css("width", wrapperHeader.outerWidth() + "px");
+    bg.css("align-self", "center");
+
 
     // Adiciona animação ao menu quando clicar ou fechar e mostra o fundo preto
     $("#menuSpan").on("click", function () {
@@ -25,6 +32,52 @@ $(function () {
 
     searchBar.on("focusout", function () {
         $("#searchIcon").fadeIn(200);
+    });
+
+    // Pesquisa os filmes digitados pelo usuário
+    searchBar.on("input", (e) => {
+        let vl = e.target.value;    
+
+        if (vl != "") {
+            header.css("position", "fixed");
+            bg.removeClass("hidden");
+
+            $.ajax({
+                url: "/Obra/Pesquisar",
+                type: "GET",
+                data: { valor: vl },
+                success: (data) => {
+                    bg.empty();
+
+                    data.forEach((filme) => {
+                        const div = document.createElement("div");
+                        const figure = document.createElement("figure");
+                        const img = document.createElement("img");
+                        const divInfo = document.createElement("div");
+
+                        div.classList = "flex space-x-4";
+                        
+                        img.classList = "rounded-lg w-[80px] h-[120px] object-cover";
+                        img.src = `/imgs/banner/${filme.codigo}.jpg`;
+                        img.alt = filme.nome;
+
+                        divInfo.innerHTML = `
+                        <h1 class="text-white font-bold">${filme.nome}</h1>
+                        <h2 class="text-zinc-300">${filme.anoLancamento}</h2>
+                        <h2 class="text-zinc-300">${filme.diretor.nome}</h2>`;
+
+                        figure.append(img);
+                        div.append(figure);
+                        div.append(divInfo);
+                        bg.append(div);
+                    });
+                }
+            });
+        }
+        else {
+            header.css("position", "static");
+            bg.addClass("hidden");
+        }
     });
 
     // Adiciona efeito hover no ícone de bookmark
@@ -54,5 +107,11 @@ $(function () {
         if (e.target.nodeName.toLowerCase() == "img" || e.target.nodeName.toLowerCase() == "a") {
             return false;
         }
+    });
+
+    $(window).on("resize", () => {
+        bg.css("top", header.height() + "px");
+        bg.css("width", wrapperHeader.outerWidth() + "px");
+        bg.css("align-self", "center");
     });
 });
