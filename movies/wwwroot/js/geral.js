@@ -54,9 +54,12 @@ $(function () {
                         const figure = document.createElement("figure");
                         const img = document.createElement("img");
                         const divInfo = document.createElement("div");
+                        const a = document.createElement("a");
 
-                        div.classList = "flex space-x-4";
-                        
+                        a.href = `obra/index/${filme.codigo}`;
+
+                        div.classList = "flex space-x-4 transition duration-200 ease-in-out w-full p-3 hover:bg-zinc-800 cursor-pointer";
+
                         img.classList = "rounded-lg w-[80px] h-[120px] object-cover";
                         img.src = `/imgs/banner/${filme.codigo}.jpg`;
                         img.alt = filme.nome;
@@ -69,7 +72,8 @@ $(function () {
                         figure.append(img);
                         div.append(figure);
                         div.append(divInfo);
-                        bg.append(div);
+                        a.append(div);
+                        bg.append(a);
                     });
                 }
             });

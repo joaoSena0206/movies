@@ -532,6 +532,9 @@ video {
 .top-1\.5 {
   top: 0.375rem;
 }
+.top-\[86px\] {
+  top: 86px;
+}
 .z-\[100\] {
   z-index: 100;
 }
@@ -559,9 +562,6 @@ video {
 .hidden {
   display: none;
 }
-.h-\[120px\] {
-  height: 120px;
-}
 .h-\[145px\] {
   height: 145px;
 }
@@ -573,6 +573,9 @@ video {
 }
 .h-screen {
   height: 100vh;
+}
+.h-\[120px\] {
+  height: 120px;
 }
 .max-h-\[90px\] {
   max-height: 90px;
@@ -592,14 +595,14 @@ video {
 .w-\[300px\] {
   width: 300px;
 }
-.w-\[80px\] {
-  width: 80px;
-}
 .w-full {
   width: 100%;
 }
 .w-screen {
   width: 100vw;
+}
+.w-\[80px\] {
+  width: 80px;
 }
 .max-w-none {
   max-width: none;
@@ -987,6 +990,21 @@ button, input, textarea {
 .hover\:bg-zinc-800:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(39 39 42 / var(--tw-bg-opacity, 1));
+}
+
+.hover\:bg-zinc-500:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(113 113 122 / var(--tw-bg-opacity, 1));
+}
+
+.hover\:bg-zinc-200:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(228 228 231 / var(--tw-bg-opacity, 1));
+}
+
+.hover\:bg-zinc-300:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(212 212 216 / var(--tw-bg-opacity, 1));
 }
 
 .hover\:text-white:hover {
